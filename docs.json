@@ -8,21 +8,12 @@
     "dark": "#15803D"
   },
   "navigation": {
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "icon": "book-open-cover",
-          "href": "https://documentation.aimtell.com"
-        }
-      ]
-    },
     "tabs": [
       {
         "tab": "API reference",
         "pages": [
           {
-            "group": "API documentation",
+            "group": "API",
             "openapi": "https://e3c6842f086d.ngrok-free.app/openapi.json",
             "pages": [
               "api-reference/introduction"
