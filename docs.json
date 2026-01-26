@@ -25,27 +25,16 @@
     "tabs": [
       {
         "tab": "API reference",
-        "groups": [
+        "pages": [
+          "api-reference/api",
           {
             "group": "API documentation",
-            "openapi": "https://api.aimtell.com/openapi.json",
+            "openapi": "https://e3c6842f086d.ngrok-free.app/openapi.json",
             "pages": [
               "api-reference/introduction"
             ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
           }
         ]
-      },
-      {
-        "tab": "Untitled Tab"
       }
     ]
   },
