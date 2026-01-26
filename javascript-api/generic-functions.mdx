@@ -1,0 +1,108 @@
+---
+title: 'Generic Functions'
+description: 'JavaScript generic functions for Aimtell'
+---
+
+## _aimtellCheckPermissions()
+
+**Description:** Checks visitor's push notification permissions
+
+**Params:** N/A
+
+**Response:** `(str)` - `granted`, `default` or `denied`
+
+---
+
+## _aimtellSupportsPush()
+
+**Description:** Checks to see if visitor's browser supports push notifications
+
+**Params:** N/A
+
+**Response:** `(boolean)`
+
+---
+
+## _aimtellGetSubscriberID()
+
+**Description:** Grabs the active visitor's subscriber id. If none exists, one is generated.
+
+**Params:** N/A
+
+**Response:** promise, `(str)` subscriber id
+
+### Example
+
+```javascript
+_aimtellGetSubscriberID().then(function(id) { console.log(id) })
+```
+
+---
+
+## _aimtellGetPushToken()
+
+**Description:** Pulls the device push token from the current visitor. This is delivered as a javascript promise.
+
+**Params:** N/A
+
+**Response:** promise, `(str)` device token
+
+### Example
+
+```javascript
+_aimtellGetPushToken().then(function(token) { console.log(token) })
+```
+
+---
+
+## _aimtellGetSubscriberIDFromToken(token)
+
+**Description:** Grabs visitors subscriber id based on push token
+
+**Params:**
+
+- `token` - required. browser push token
+
+**Response:** promise, `(obj)` result, uid
+
+### Example
+
+```javascript
+_aimtellGetSubscriberIDFromToken(token).then(function(user){ console.log(user) })
+```
+
+---
+
+## _aimtellGetSubscriberAttributes()
+
+**Description:** Grabs current website subscriber's attributes.
+
+<Warning>
+**Note:** As custom attributes may contain information which an Aimtell website owner may not want easily viewable, this function by default is locked as a security measure. You must specifically request our team to unlock it for your account.
+</Warning>
+
+### Example
+
+```javascript
+_aimtellGetSubscriberAttributes().then(function(data){console.log(data)})
+```
+
+---
+
+## _aimtellPrompt()
+
+**Description:** If custom push prompt exists, show it, else load native push prompt
+
+**Params:** N/A
+
+**Response:** `null`
+
+---
+
+## _aimtellForcePrompt()
+
+**Description:** Force shows the custom optin, even if previously denied.
+
+**Params:** N/A
+
+**Response:** `null`

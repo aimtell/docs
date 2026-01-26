@@ -1,0 +1,65 @@
+---
+title: 'Tracking Functions'
+description: 'JavaScript API v2.0 tracking functions for Aimtell'
+---
+
+## Alias Tracking
+
+Associates an alias against the push subscriber for simplified server-side tracking.
+
+```javascript
+_at.track("alias", {"user" : "name or id", "email" : "email" });
+```
+
+**Description:** Associates an alias against the push subscriber for simplified server-side tracking
+
+You may pass the `user` field and/or the `email` field. All emails are automatically hashed.
+
+### Example
+
+```javascript
+_at.track("alias", {"user" : "jack17"});
+```
+
+---
+
+## Event Tracking
+
+Tracks an event against the current subscriber.
+
+```javascript
+_at.track("event", {"category" : "A", "action" : "B", "label": "C", "value" : D });
+```
+
+**Description:** Tracks an event against the current subscriber
+
+`category` & `action` are required. `label` and `value` are optional.
+
+### Example
+
+```javascript
+_at.track("event", {
+  "category" : "Item",
+  "action" : "Purchased",
+  "label": "Blue Shoes",
+  "value" : 33
+});
+```
+
+---
+
+## Attribute Tracking
+
+Tracks custom attribute(s) against the subscriber.
+
+```javascript
+_at.track("attribute", {"attribute" : "value"});
+```
+
+**Description:** Tracks custom attribute(s) against the subscriber
+
+### Example
+
+```javascript
+_at.track("attribute", {"age" : "35", "name":"david"});
+```

@@ -1,0 +1,58 @@
+---
+title: 'Callback Functions'
+description: 'JavaScript callback functions for Aimtell'
+---
+
+## _aimtellReady()
+
+**Description:** Called when aimtell script has finished loading.
+
+### Example
+
+```javascript
+function _aimtellReady(){
+  alert("Everything is loaded!");
+}
+```
+
+---
+
+## _aimtellPermissionGranted()
+
+**Description:** Called after website visitor has granted push notification permissions.
+
+### Example
+
+```javascript
+function _aimtellPermissionGranted(){
+ alert("Thanks, you're now subscribed!");
+}
+```
+
+---
+
+## _aimtellPermissionIgnored()
+
+**Description:** Called after website visitor has ignored push notification permissions. (clicking "x" on the request dialog)
+
+### Example
+
+```javascript
+function _aimtellPermissionIgnored(){
+ alert("Oh no, you ignored me!");
+}
+```
+
+---
+
+## _aimtellPermissionDenied()
+
+**Description:** Called after website visitor has denied push notification permissions.
+
+### Example
+
+```javascript
+function _aimtellPermissionDenied(){
+ alert("Oh no, you denied me!");
+}
+```

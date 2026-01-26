@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:developers.aimtell.com)",
+      "Bash(curl -s \"https://developers.aimtell.com/reference/api-functions-v2\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
