@@ -14,7 +14,7 @@
         "pages": [
           {
             "group": "API",
-            "openapi": "https://e3c6842f086d.ngrok-free.app/openapi.json",
+            "openapi": "/api-reference/openapi.json",
             "pages": [
               "api-reference/introduction"
             ]
