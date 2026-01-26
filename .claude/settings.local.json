@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:developers.aimtell.com)",
-      "Bash(curl -s \"https://developers.aimtell.com/reference/api-functions-v2\")"
+      "Bash(curl -s \"https://developers.aimtell.com/reference/api-functions-v2\")",
+      "Bash(python3 -c \"\nimport json\n\n# Read the OpenAPI spec\nwith open(''openapi.json'', ''r'') as f:\n    spec = json.load(f)\n\n# Get the paths and sort them by their tags (alphabetically)\npaths = spec[''paths'']\npath_items = []\n\n# Create a list of (path, path_obj, first_tag) tuples\nfor path, path_obj in paths.items():\n    first_tag = None\n    for method in path_obj.values():\n        if isinstance(method, dict) and ''tags'' in method:\n            first_tag = method[''tags''][0] if method[''tags''] else ''zzz''\n            break\n    path_items.append((path, path_obj, first_tag or ''zzz''))\n\n# Sort by tag name\npath_items.sort(key=lambda x: x[2])\n\n# Rebuild paths dictionary in sorted order\nsorted_paths = {}\nfor path, path_obj, _ in path_items:\n    sorted_paths[path] = path_obj\n\nspec[''paths''] = sorted_paths\n\n# Write back\nwith open(''openapi.json'', ''w'') as f:\n    json.dump(spec, f, indent=2)\n\nprint(''OpenAPI paths reordered alphabetically by tag'')\n\")"
     ],
     "deny": [],
     "ask": []
