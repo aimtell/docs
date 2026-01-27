@@ -26,6 +26,18 @@
             "pages": [
               "api-reference/introduction"
             ]
+          },
+          {
+            "group": "REST API - Push Notifications",
+            "openapi": "/api-reference/push-openapi.json"
+          },
+          {
+            "group": "REST API - Sites",
+            "openapi": "/api-reference/sites-openapi.json"
+          },
+          {
+            "group": "REST API - Segmentation",
+            "openapi": "/api-reference/segments-openapi.json"
           }
         ]
       }

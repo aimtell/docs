@@ -1,0 +1,5018 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "push-notifications",
+    "version": "1.1"
+  },
+  "servers": [
+    {
+      "url": "https://api.aimtell.com"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "sec0": {
+        "type": "apiKey",
+        "name": "X-Authorization-Api-Key",
+        "in": "header",
+        "x-default": ""
+      }
+    }
+  },
+  "security": [
+    {
+      "sec0": []
+    }
+  ],
+  "paths": {
+    "/prod/push/": {
+      "post": {
+        "summary": "Send Push Notification",
+        "description": "Send a Push Notification",
+        "operationId": "api-send-push-notification",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "idSite",
+                  "title",
+                  "body",
+                  "link"
+                ],
+                "properties": {
+                  "idSite": {
+                    "type": "integer",
+                    "description": "Site ID",
+                    "format": "int32"
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "Notification Title"
+                  },
+                  "body": {
+                    "type": "string",
+                    "description": "Notification Body"
+                  },
+                  "link": {
+                    "type": "string",
+                    "description": "Notification Link"
+                  },
+                  "subscriber_uids": {
+                    "type": "array",
+                    "description": "Subscriber UIDS",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "segmentId": {
+                    "type": "integer",
+                    "description": "Segment ID",
+                    "format": "int32"
+                  },
+                  "alias": {
+                    "type": "string",
+                    "description": "A subscriber alias (usually a username, userid or email)"
+                  },
+                  "customIcon": {
+                    "type": "string",
+                    "description": "url of custom icon to use (recommended size: 250x250)"
+                  },
+                  "customImage": {
+                    "type": "string",
+                    "description": "url of custom image to use (recommended size: 300x500)"
+                  },
+                  "push_ttl": {
+                    "type": "integer",
+                    "description": "Time till a push should expire in seconds. Default is 1 week.",
+                    "default": 604800,
+                    "format": "int32"
+                  },
+                  "auto_hide": {
+                    "type": "integer",
+                    "description": "Number of seconds (255 max) until the notification will hide automatically. Default is 0, which is persistent (requires interaction)",
+                    "format": "int32"
+                  },
+                  "collapse_key": {
+                    "type": "string",
+                    "description": "replace visible notifications on a subscribers device (e.g. breaking_news)"
+                  },
+                  "actions": {
+                    "type": "object",
+                    "description": "Action Buttons",
+                    "properties": {
+                      "a01": {
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string",
+                            "description": "Text of action button"
+                          },
+                          "link": {
+                            "type": "string",
+                            "description": "Link/URL of action when clicked"
+                          }
+                        }
+                      },
+                      "a02": {
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string",
+                            "description": "Text of action button"
+                          },
+                          "link": {
+                            "type": "string",
+                            "description": "Link/URL of action when clicked"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "success",
+                      "message": "Request received. Push sending shortly.",
+                      "objectId": "5r777x9f8f01d"
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Request received. Push sending shortly."
+                    },
+                    "objectId": {
+                      "type": "string",
+                      "example": "5r777x9f8f01d"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Error #136."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Error #136."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Invalid token.",
+                      "error_code": 71831
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid token."
+                    },
+                    "error_code": {
+                      "type": "integer",
+                      "example": 71831,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "One-Off Notifications"
+        ]
+      }
+    },
+    "/prod/event-campaigns/{id}": {
+      "get": {
+        "summary": "Get All Event Triggered Campaigns",
+        "description": "Fetches All Event Triggered Campaigns",
+        "operationId": "get-all-event-campaigns",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Site ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Skip",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": [
+                      {
+                        "id": 819,
+                        "uid": "76cedd11b19e",
+                        "idSite": 179,
+                        "name": "Sample Triggered Notification # 1:  Abandoned Cart",
+                        "title": "",
+                        "body": "",
+                        "link": "",
+                        "customIcon": "https://s3.amazonaws.com/siteicons.aimtell.com/icon_40_1443032714..jpg",
+                        "delay": 0,
+                        "eventCategory": "cart",
+                        "eventAction": "abandoned",
+                        "eventLabel": "",
+                        "conversion_trigger": null,
+                        "collapse_key": null,
+                        "createdAt": "2016-10-24 23:26:06",
+                        "updatedAt": "2017-02-18 01:11:34",
+                        "status": 1,
+                        "sentcount": null,
+                        "clickcount": null,
+                        "conversions": null,
+                        "bounced": null,
+                        "draft": true,
+                        "campaign_results": {
+                          "sent": 0,
+                          "delivered": 0,
+                          "bounced": 0,
+                          "clicked": 0,
+                          "conversions": 0
+                        }
+                      },
+                      {
+                        "id": 1659,
+                        "uid": "76cedd11b19e",
+                        "idSite": 179,
+                        "name": "Sample Triggered Notification # 2: Item Shipped",
+                        "title": "Your order has been shipped!",
+                        "body": "All items from order have now been shipped.  Click to view tracking information.",
+                        "link": "https://demo.aimtell.com",
+                        "customIcon": "https://s3.amazonaws.com/siteicons.aimtell.com/icon_40_1443032714..jpg",
+                        "delay": 30,
+                        "eventCategory": "Item",
+                        "eventAction": "Shipped",
+                        "eventLabel": "",
+                        "conversion_trigger": null,
+                        "collapse_key": null,
+                        "createdAt": "2016-12-23 17:33:19",
+                        "updatedAt": "2017-02-18 01:12:03",
+                        "status": 5,
+                        "sentcount": null,
+                        "clickcount": null,
+                        "conversions": null,
+                        "bounced": null,
+                        "campaign_results": {
+                          "sent": 0,
+                          "delivered": 0,
+                          "bounced": 0,
+                          "clicked": 0,
+                          "conversions": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 819,
+                        "default": 0
+                      },
+                      "uid": {
+                        "type": "string",
+                        "example": "76cedd11b19e"
+                      },
+                      "idSite": {
+                        "type": "integer",
+                        "example": 179,
+                        "default": 0
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Sample Triggered Notification # 1:  Abandoned Cart"
+                      },
+                      "title": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "body": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "link": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "customIcon": {
+                        "type": "string",
+                        "example": "https://s3.amazonaws.com/siteicons.aimtell.com/icon_40_1443032714..jpg"
+                      },
+                      "delay": {
+                        "type": "integer",
+                        "example": 0,
+                        "default": 0
+                      },
+                      "eventCategory": {
+                        "type": "string",
+                        "example": "cart"
+                      },
+                      "eventAction": {
+                        "type": "string",
+                        "example": "abandoned"
+                      },
+                      "eventLabel": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "conversion_trigger": {},
+                      "collapse_key": {},
+                      "createdAt": {
+                        "type": "string",
+                        "example": "2016-10-24 23:26:06"
+                      },
+                      "updatedAt": {
+                        "type": "string",
+                        "example": "2017-02-18 01:11:34"
+                      },
+                      "status": {
+                        "type": "integer",
+                        "example": 1,
+                        "default": 0
+                      },
+                      "sentcount": {},
+                      "clickcount": {},
+                      "conversions": {},
+                      "bounced": {},
+                      "draft": {
+                        "type": "boolean",
+                        "example": true,
+                        "default": true
+                      },
+                      "campaign_results": {
+                        "type": "object",
+                        "properties": {
+                          "sent": {
+                            "type": "integer",
+                            "example": 0,
+                            "default": 0
+                          },
+                          "delivered": {
+                            "type": "integer",
+                            "example": 0,
+                            "default": 0
+                          },
+                          "bounced": {
+                            "type": "integer",
+                            "example": 0,
+                            "default": 0
+                          },
+                          "clicked": {
+                            "type": "integer",
+                            "example": 0,
+                            "default": 0
+                          },
+                          "conversions": {
+                            "type": "integer",
+                            "example": 0,
+                            "default": 0
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Invalid token.",
+                      "error_code": 71831
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid token."
+                    },
+                    "error_code": {
+                      "type": "integer",
+                      "example": 71831,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Triggered Campaigns"
+        ]
+      }
+    },
+    "/prod/event-campaign/{id}": {
+      "get": {
+        "summary": "Get Event Triggered Campaign",
+        "description": "Fetches Event Triggered Campaign",
+        "operationId": "get-event-campaign-1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Campaign ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "id": 819,
+                      "uid": "76cedd11b19e",
+                      "idSite": 179,
+                      "name": "Sample Triggered Notification # 1:  Abandoned Cart",
+                      "title": "",
+                      "body": "",
+                      "link": "",
+                      "customIcon": "https://s3.amazonaws.com/siteicons.aimtell.com/icon_40_1443032714..jpg",
+                      "delay": 0,
+                      "eventCategory": "cart",
+                      "eventAction": "abandoned",
+                      "eventLabel": "",
+                      "conversion_trigger": null,
+                      "collapse_key": null,
+                      "createdAt": "2016-10-24 23:26:06",
+                      "updatedAt": "2017-02-18 01:11:34",
+                      "status": 1,
+                      "bounced": null,
+                      "campaign_results": {
+                        "sent": 0,
+                        "delivered": 0,
+                        "bounced": 0,
+                        "clicked": 0,
+                        "conversions": 0
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 819,
+                      "default": 0
+                    },
+                    "uid": {
+                      "type": "string",
+                      "example": "76cedd11b19e"
+                    },
+                    "idSite": {
+                      "type": "integer",
+                      "example": 179,
+                      "default": 0
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Sample Triggered Notification # 1:  Abandoned Cart"
+                    },
+                    "title": {
+                      "type": "string",
+                      "example": ""
+                    },
+                    "body": {
+                      "type": "string",
+                      "example": ""
+                    },
+                    "link": {
+                      "type": "string",
+                      "example": ""
+                    },
+                    "customIcon": {
+                      "type": "string",
+                      "example": "https://s3.amazonaws.com/siteicons.aimtell.com/icon_40_1443032714..jpg"
+                    },
+                    "delay": {
+                      "type": "integer",
+                      "example": 0,
+                      "default": 0
+                    },
+                    "eventCategory": {
+                      "type": "string",
+                      "example": "cart"
+                    },
+                    "eventAction": {
+                      "type": "string",
+                      "example": "abandoned"
+                    },
+                    "eventLabel": {
+                      "type": "string",
+                      "example": ""
+                    },
+                    "conversion_trigger": {},
+                    "collapse_key": {},
+                    "createdAt": {
+                      "type": "string",
+                      "example": "2016-10-24 23:26:06"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "example": "2017-02-18 01:11:34"
+                    },
+                    "status": {
+                      "type": "integer",
+                      "example": 1,
+                      "default": 0
+                    },
+                    "bounced": {},
+                    "campaign_results": {
+                      "type": "object",
+                      "properties": {
+                        "sent": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "delivered": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "bounced": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "clicked": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "conversions": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Invalid token.",
+                      "error_code": 71831
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid token."
+                    },
+                    "error_code": {
+                      "type": "integer",
+                      "example": 71831,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Triggered Campaigns"
+        ]
+      },
+      "put": {
+        "summary": "Update Event Triggered Campaign",
+        "description": "Update an Event Triggered Campaign",
+        "operationId": "update-event-campaign",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Campaign ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Name of Campaign"
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "Push Title"
+                  },
+                  "body": {
+                    "type": "string",
+                    "description": "Push Body Message"
+                  },
+                  "link": {
+                    "type": "string",
+                    "description": "Push Notification Link"
+                  },
+                  "status": {
+                    "type": "integer",
+                    "description": "set 1 for draft, 5 for active",
+                    "format": "int32"
+                  },
+                  "eventAction": {
+                    "type": "string"
+                  },
+                  "eventCategory": {
+                    "type": "string"
+                  },
+                  "eventLabel": {
+                    "type": "string"
+                  },
+                  "delay": {
+                    "type": "integer",
+                    "description": "Time in seconds after event when push should be sent",
+                    "format": "int32"
+                  },
+                  "drip": {
+                    "type": "string",
+                    "description": "Comma separated integer values representing delays as seconds from event. Example: 60, 300, 3600"
+                  },
+                  "customIcon": {
+                    "type": "string",
+                    "description": "url of custom icon to use (recommended size: 250x250)"
+                  },
+                  "customImage": {
+                    "type": "string",
+                    "description": "url of custom image to use (recommended size: 300x500))"
+                  },
+                  "target_device": {
+                    "type": "string",
+                    "description": "device type to target (optional). can be either: \"any\", \"mobile\" or \"desktop\""
+                  },
+                  "actions": {
+                    "type": "object",
+                    "description": "action buttons",
+                    "properties": {
+                      "a01": {
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string",
+                            "description": "Text of action button"
+                          },
+                          "link": {
+                            "type": "string",
+                            "description": "Link/URL of action when clicked"
+                          }
+                        }
+                      },
+                      "a02": {
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string",
+                            "description": "Text of action button"
+                          },
+                          "link": {
+                            "type": "string",
+                            "description": "Link/URL of action when clicked"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "collapse_key": {
+                    "type": "string",
+                    "description": "replace visible notifications on a subscribers device (e.g. breaking_news)"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "success",
+                      "campaignId": "329"
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "campaignId": {
+                      "type": "string",
+                      "example": "329"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Error #136."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Error #136."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Please specify a valid auth_token."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Please specify a valid auth_token."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Triggered Campaigns"
+        ]
+      },
+      "delete": {
+        "summary": "Delete Event Triggered Campaign",
+        "description": "Delete a specific Event Triggered Campaign",
+        "operationId": "delete-event-campaign",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Campaign ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "success",
+                      "message": "campaign deleted",
+                      "campaignId": "80"
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "campaign deleted"
+                    },
+                    "campaignId": {
+                      "type": "string",
+                      "example": "80"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Please specify a valid auth_token."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Please specify a valid auth_token."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Triggered Campaigns"
+        ]
+      }
+    },
+    "/prod/event-campaign/{id}/results": {
+      "get": {
+        "summary": "Get Event Campaign Results (By Day)",
+        "description": "Fetches Event Campaign Results (by Day)\nRevenue for Monetized Campaigns is Included in Results",
+        "operationId": "get-event-campaign-results-by-day",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Campaign ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "Date",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "Date",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "sent": {
+                        "03/05/2017": 0,
+                        "03/06/2017": 0,
+                        "03/07/2017": 0,
+                        "03/08/2017": 0,
+                        "03/09/2017": 0
+                      },
+                      "delivered": {
+                        "03/05/2017": 0,
+                        "03/06/2017": 0,
+                        "03/07/2017": 0,
+                        "03/08/2017": 0,
+                        "03/09/2017": 0
+                      },
+                      "bounced": {
+                        "03/05/2017": 0,
+                        "03/06/2017": 0,
+                        "03/07/2017": 0,
+                        "03/08/2017": 0,
+                        "03/09/2017": 0
+                      },
+                      "clicked": {
+                        "03/05/2017": 0,
+                        "03/06/2017": 0,
+                        "03/07/2017": 0,
+                        "03/08/2017": 0,
+                        "03/09/2017": 0
+                      },
+                      "conversions": {
+                        "03/05/2017": 0,
+                        "03/06/2017": 0,
+                        "03/07/2017": 0,
+                        "03/08/2017": 0,
+                        "03/09/2017": 0
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "sent": {
+                      "type": "object",
+                      "properties": {
+                        "03/05/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/06/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/07/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/08/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/09/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        }
+                      }
+                    },
+                    "delivered": {
+                      "type": "object",
+                      "properties": {
+                        "03/05/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/06/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/07/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/08/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/09/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        }
+                      }
+                    },
+                    "bounced": {
+                      "type": "object",
+                      "properties": {
+                        "03/05/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/06/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/07/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/08/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/09/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        }
+                      }
+                    },
+                    "clicked": {
+                      "type": "object",
+                      "properties": {
+                        "03/05/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/06/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/07/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/08/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/09/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        }
+                      }
+                    },
+                    "conversions": {
+                      "type": "object",
+                      "properties": {
+                        "03/05/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/06/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/07/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/08/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/09/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Invalid token.",
+                      "error_code": 71831
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid token."
+                    },
+                    "error_code": {
+                      "type": "integer",
+                      "example": 71831,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Triggered Campaigns"
+        ]
+      }
+    },
+    "/prod/event-campaigns/": {
+      "post": {
+        "summary": "Create Event Triggered Campaign",
+        "description": "Create an Event Triggered Campaign",
+        "operationId": "create-event-campaign",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "idSite"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Campaign Name"
+                  },
+                  "idSite": {
+                    "type": "string",
+                    "description": "Site ID"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "success",
+                      "campaignId": 1991
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "campaignId": {
+                      "type": "integer",
+                      "example": 1991,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Error #139."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Error #139."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Triggered Campaigns"
+        ]
+      }
+    },
+    "/prod/event-campaigns/{idSite}": {
+      "post": {
+        "summary": "Create Event Triggered Campaign (Batch)",
+        "description": "Create Multiple Event Triggered Campaigns",
+        "operationId": "api-create-event-triggered-campaign-batch",
+        "parameters": [
+          {
+            "name": "idSite",
+            "in": "path",
+            "description": "Site ID",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "RAW_BODY": {
+                    "type": "array",
+                    "description": "Array of objects with campaign params",
+                    "items": {
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "Campaign Name"
+                        },
+                        "title": {
+                          "type": "string",
+                          "description": "Push Title"
+                        },
+                        "body": {
+                          "type": "string",
+                          "description": "Push Body"
+                        },
+                        "link": {
+                          "type": "string",
+                          "description": "Link"
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "eventAction": {
+                          "type": "string",
+                          "description": "Event Action"
+                        },
+                        "eventCategory": {
+                          "type": "string",
+                          "description": "Event Category"
+                        },
+                        "eventLabel": {
+                          "type": "string",
+                          "description": "Event Label"
+                        },
+                        "delay": {
+                          "type": "integer",
+                          "description": "Delay",
+                          "format": "int32"
+                        },
+                        "customIcon": {
+                          "type": "string",
+                          "description": "URL of custom icon to use (recommended size: 250x250)"
+                        },
+                        "customImage": {
+                          "type": "string",
+                          "description": "URL of custom image to use (recommended size: 300x500)"
+                        },
+                        "target_device": {
+                          "type": "string",
+                          "description": "Device type to target (optional). can be either: \"any\", \"mobile\" or \"desktop\""
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ],
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": [
+                      {
+                        "result": "error",
+                        "message": "Insufficient permissions."
+                      },
+                      {
+                        "result": "success",
+                        "campaignId": 480830
+                      }
+                    ]
+                  }
+                },
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "result": {
+                        "type": "string",
+                        "example": "error"
+                      },
+                      "message": {
+                        "type": "string",
+                        "example": "Insufficient permissions."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Triggered Campaigns"
+        ]
+      },
+      "put": {
+        "summary": "Update Event Triggered Campaign (Batch)",
+        "description": "Update Multiple Event Triggered Campaigns",
+        "operationId": "api-update-event-triggered-campaign-batch",
+        "parameters": [
+          {
+            "name": "idSite",
+            "in": "path",
+            "description": "Site ID",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "RAW_BODY": {
+                    "type": "array",
+                    "description": "Array of objects with campaign parameters",
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "Campaign ID"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Campaign Name"
+                        },
+                        "title": {
+                          "type": "string",
+                          "description": "Push Title"
+                        },
+                        "body": {
+                          "type": "string",
+                          "description": "Push Body"
+                        },
+                        "link": {
+                          "type": "string",
+                          "description": "Push Link"
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32"
+                        },
+                        "eventAction": {
+                          "type": "string",
+                          "description": "Event Action"
+                        },
+                        "eventCategory": {
+                          "type": "string",
+                          "description": "Event Category"
+                        },
+                        "eventLabel": {
+                          "type": "string",
+                          "description": "Event Label"
+                        },
+                        "delay": {
+                          "type": "integer",
+                          "description": "Delay",
+                          "format": "int32"
+                        },
+                        "customIcon": {
+                          "type": "string",
+                          "description": "URL of custom icon to use (recommended size: 250x250)"
+                        },
+                        "customImage": {
+                          "type": "string",
+                          "description": "URL of custom image to use (recommended size: 300x500)"
+                        },
+                        "target_device": {
+                          "type": "string",
+                          "description": "Device type to target (optional). can be either: \"any\", \"mobile\" or \"desktop\""
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ],
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": [
+                      {
+                        "result": "error",
+                        "message": "Insufficient permissions."
+                      },
+                      {
+                        "result": "success",
+                        "campaignId": 480830
+                      }
+                    ]
+                  }
+                },
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "result": {
+                        "type": "string",
+                        "example": "error"
+                      },
+                      "message": {
+                        "type": "string",
+                        "example": "Insufficient permissions."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Triggered Campaigns"
+        ]
+      },
+      "delete": {
+        "summary": "Delete Event Triggered (Batch)",
+        "description": "Delete Multiple Event Triggered Campaigns",
+        "operationId": "api-delete-event-triggered-batch",
+        "parameters": [
+          {
+            "name": "idSite",
+            "in": "path",
+            "description": "Site ID",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "RAW_BODY": {
+                    "type": "array",
+                    "description": "Object with campaign params",
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "Campaign ID"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": [
+                      {
+                        "result": "error",
+                        "message": "Insufficient permissions."
+                      },
+                      {
+                        "result": "success",
+                        "campaignId": 480830
+                      }
+                    ]
+                  }
+                },
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "result": {
+                        "type": "string",
+                        "example": "error"
+                      },
+                      "message": {
+                        "type": "string",
+                        "example": "Insufficient permissions."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Triggered Campaigns"
+        ]
+      }
+    },
+    "/prod/rss-notifications/{id}": {
+      "get": {
+        "summary": "Get All RSS Campaigns",
+        "description": "Fetches All RSS Campaigns",
+        "operationId": "api-get-all-rss-campaigns",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Site ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Skip",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": [
+                      {
+                        "id": 128,
+                        "idSite": 179,
+                        "name": "Sample RSS Notification # 1",
+                        "feed_url": "https://demo.aimtell.com/rss.xml",
+                        "title": "{rss_title}",
+                        "body": "{rss_body}",
+                        "link": "{rss_link}",
+                        "segments": "12345",
+                        "status": 1,
+                        "uid": "aBc1234567980",
+                        "customIcon": "https://s3.amazonaws.com/siteicons.aimtell.com/icon_40_1443032714..jpg",
+                        "customImage": "",
+                        "actions": "{\"a01\":{\"title\":\"Read More\",\"link\":\"{rss_link}\"}}",
+                        "collapse_key": null,
+                        "max_enabled": 0,
+                        "max_type": "hourly",
+                        "max_value": 0,
+                        "createdAt": "2020-08-18 20:04:19",
+                        "updatedAt": "2020-12-01 17:41:37",
+                        "campaign_results": {
+                          "sent": 64,
+                          "delivered": 64,
+                          "bounced": 0,
+                          "clicked": 6,
+                          "conversions": 0,
+                          "conversions_value": 0,
+                          "clicked_a01": 0,
+                          "clicked_a02": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Invalid token.",
+                      "error_code": 71831
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid token."
+                    },
+                    "error_code": {
+                      "type": "integer",
+                      "example": 71831,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "RSS Campaigns"
+        ]
+      }
+    },
+    "/prod/rss-notification/{id}": {
+      "get": {
+        "summary": "Get RSS Campaign",
+        "description": "Fetches a Specific RSS Campaign",
+        "operationId": "api-get-event-triggered-campaign",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Campaign ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "id": 128,
+                      "idSite": 179,
+                      "name": "Sample RSS Notification # 1",
+                      "feed_url": "https://demo.aimtell.com/rss.xml",
+                      "title": "{rss_title}",
+                      "body": "{rss_body}",
+                      "link": "{rss_link}",
+                      "segments": "12345",
+                      "status": 1,
+                      "uid": "aBc1234567980",
+                      "customIcon": "https://s3.amazonaws.com/siteicons.aimtell.com/icon_40_1443032714..jpg",
+                      "customImage": "",
+                      "actions": {
+                        "a01": {
+                          "title": "Read More",
+                          "link": "{rss_link}"
+                        }
+                      },
+                      "collapse_key": null,
+                      "max_enabled": 0,
+                      "max_type": "hourly",
+                      "max_value": 0,
+                      "createdAt": "2020-08-18 20:04:19",
+                      "updatedAt": "2020-12-01 17:41:37",
+                      "campaign_results": {
+                        "sent": 64,
+                        "delivered": 64,
+                        "bounced": 0,
+                        "clicked": 6,
+                        "conversions": 0,
+                        "conversions_value": 0,
+                        "clicked_a01": 0,
+                        "clicked_a02": 1
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Invalid token.",
+                      "error_code": 71831
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid token."
+                    },
+                    "error_code": {
+                      "type": "integer",
+                      "example": 71831,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "RSS Campaigns"
+        ]
+      },
+      "put": {
+        "summary": "Update RSS Campaign",
+        "description": "Update a RSS Campaign",
+        "operationId": "api-update-rss-campaign",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Campaign ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "status"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Name of Campaign"
+                  },
+                  "feed_url": {
+                    "type": "string",
+                    "description": "URL of RSS feed"
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "Push Title"
+                  },
+                  "body": {
+                    "type": "string",
+                    "description": "Push Body Message"
+                  },
+                  "link": {
+                    "type": "string",
+                    "description": "Push Notification Link"
+                  },
+                  "customIcon": {
+                    "type": "string",
+                    "description": "url of custom icon to use (recommended size: 250x250)"
+                  },
+                  "customImage": {
+                    "type": "string",
+                    "description": "url of custom image to use (recommended size: 300x500))"
+                  },
+                  "status": {
+                    "type": "integer",
+                    "description": "set 1 for draft, 2 for active",
+                    "format": "int32"
+                  },
+                  "segments": {
+                    "type": "string",
+                    "description": "Segments \u2014 comma separated list with no spaces e.g. 12345,12346,12347"
+                  },
+                  "max_enabled": {
+                    "type": "integer",
+                    "description": "enable maximum number of sends \u2014 set 0 for false,  1 for true",
+                    "format": "int32"
+                  },
+                  "max_type": {
+                    "type": "string",
+                    "description": "hourly or daily"
+                  },
+                  "max_value": {
+                    "type": "integer",
+                    "description": "maximum number of sends e.g. 5 or 20",
+                    "format": "int32"
+                  },
+                  "actions": {
+                    "type": "object",
+                    "properties": {
+                      "a01": {
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string",
+                            "description": "Text of action button"
+                          },
+                          "link": {
+                            "type": "string",
+                            "description": "Link/URL of action when clicked"
+                          }
+                        }
+                      },
+                      "a02": {
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string",
+                            "description": "Text of action button"
+                          },
+                          "link": {
+                            "type": "string",
+                            "description": "Link/URL of action when clicked"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "collapse_key": {
+                    "type": "string",
+                    "description": "replace visible notifications on a subscribers device (e.g. breaking_news)"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "success",
+                      "campaignId": "128"
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "campaignId": {
+                      "type": "string",
+                      "example": "128"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Error #136."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Error #136."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Please specify a valid auth_token."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Please specify a valid auth_token."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "RSS Campaigns"
+        ]
+      },
+      "delete": {
+        "summary": "Delete RSS Campaign",
+        "description": "Delete a specific RSS Campaign",
+        "operationId": "api-delete-rss-campaign",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Campaign ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "success",
+                      "message": "rss campaign deleted",
+                      "campaignId": "1991"
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "rss campaign deleted"
+                    },
+                    "campaignId": {
+                      "type": "string",
+                      "example": "1991"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Please specify a valid auth_token."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Please specify a valid auth_token."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "RSS Campaigns"
+        ]
+      }
+    },
+    "/prod/rss-notifications/{id}/results": {
+      "get": {
+        "summary": "Get RSS Campaign Results (By Day)",
+        "description": "Fetches RSS Campaign Results (by Day)",
+        "operationId": "api-get-rss-campaign-results-by-day",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Campaign ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "Date",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "Date",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "sent": {
+                        "03/05/2017": 0,
+                        "03/06/2017": 0,
+                        "03/07/2017": 0,
+                        "03/08/2017": 0,
+                        "03/09/2017": 0
+                      },
+                      "delivered": {
+                        "03/05/2017": 0,
+                        "03/06/2017": 0,
+                        "03/07/2017": 0,
+                        "03/08/2017": 0,
+                        "03/09/2017": 0
+                      },
+                      "bounced": {
+                        "03/05/2017": 0,
+                        "03/06/2017": 0,
+                        "03/07/2017": 0,
+                        "03/08/2017": 0,
+                        "03/09/2017": 0
+                      },
+                      "clicked": {
+                        "03/05/2017": 0,
+                        "03/06/2017": 0,
+                        "03/07/2017": 0,
+                        "03/08/2017": 0,
+                        "03/09/2017": 0
+                      },
+                      "conversions": {
+                        "03/05/2017": 0,
+                        "03/06/2017": 0,
+                        "03/07/2017": 0,
+                        "03/08/2017": 0,
+                        "03/09/2017": 0
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "sent": {
+                      "type": "object",
+                      "properties": {
+                        "03/05/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/06/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/07/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/08/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/09/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        }
+                      }
+                    },
+                    "delivered": {
+                      "type": "object",
+                      "properties": {
+                        "03/05/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/06/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/07/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/08/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/09/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        }
+                      }
+                    },
+                    "bounced": {
+                      "type": "object",
+                      "properties": {
+                        "03/05/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/06/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/07/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/08/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/09/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        }
+                      }
+                    },
+                    "clicked": {
+                      "type": "object",
+                      "properties": {
+                        "03/05/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/06/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/07/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/08/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/09/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        }
+                      }
+                    },
+                    "conversions": {
+                      "type": "object",
+                      "properties": {
+                        "03/05/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/06/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/07/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/08/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/09/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Invalid token.",
+                      "error_code": 71831
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid token."
+                    },
+                    "error_code": {
+                      "type": "integer",
+                      "example": 71831,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "RSS Campaigns"
+        ]
+      }
+    },
+    "/prod/rss-notifications/": {
+      "post": {
+        "summary": "Create RSS Campaign",
+        "description": "Create a RSS Campaign",
+        "operationId": "api-create-rss-campaign",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "idSite"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Campaign Name"
+                  },
+                  "idSite": {
+                    "type": "string",
+                    "description": "Site ID"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "success",
+                      "campaignId": 128
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "campaignId": {
+                      "type": "integer",
+                      "example": 128,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Error #139."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Error #139."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "RSS Campaigns"
+        ]
+      }
+    },
+    "/prod/campaigns/{id}": {
+      "get": {
+        "summary": "Get All Manual Campaigns",
+        "description": "Enables you to fetch all MANUAL campaigns",
+        "operationId": "get-all-campaigns",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Site ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Skip",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": [
+                      {
+                        "idSite": 179,
+                        "uid": "76cedd11b19e",
+                        "name": "Campaign 1",
+                        "title": "Title",
+                        "body": "Body",
+                        "link": "https://weblink.com",
+                        "id": 1,
+                        "segments": "",
+                        "ab_linked_campaign": null,
+                        "push_src": null,
+                        "push_src_values": null,
+                        "sent_date": null,
+                        "schedule_date": "2024-09-03 12:30",
+                        "status": 1,
+                        "customIcon": "https://cdn.aimtell.io/user/uploads/siteicons.aimtell.com/icon_40_1443032714..jpg",
+                        "customImage": "",
+                        "actions": {
+                          "a01": {
+                            "title": "",
+                            "link": ""
+                          },
+                          "a02": {
+                            "title": "",
+                            "link": ""
+                          }
+                        },
+                        "collapse_key": null,
+                        "createdAt": "2024-09-02 19:18:55",
+                        "updatedAt": "2024-09-02 19:18:55"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Invalid token.",
+                      "error_code": 71831
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid token."
+                    },
+                    "error_code": {
+                      "type": "integer",
+                      "example": 71831,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Manual Campaigns"
+        ]
+      }
+    },
+    "/prod/campaign/{id}": {
+      "get": {
+        "summary": "Get Manual Campaign",
+        "description": "Fetches a specific MANUAL Campaign",
+        "operationId": "get-campaign",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Campaign ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "load",
+            "in": "query",
+            "description": "Load Additional Information (i.e. Segments)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "id": 259,
+                      "uid": "76cedd11b19e",
+                      "idSite": 179,
+                      "name": "Sample Campaign #1",
+                      "title": "Welcome to Aimtell!",
+                      "body": "Got questions? Check out our knowledge base.",
+                      "link": "https://kb.aimtell.com",
+                      "customIcon": null,
+                      "customImage": null,
+                      "segments": "245",
+                      "conversion_trigger": null,
+                      "push_ttl": 0,
+                      "auto_hide": null,
+                      "collapse_key": null,
+                      "schedule_date": "2024-12-11 12:12:00",
+                      "ab_version": null,
+                      "ab_linked_campaign": null,
+                      "push_src": null,
+                      "push_src_values": null,
+                      "tz_delivery": 0,
+                      "sent_date": null,
+                      "createdAt": "2015-12-28 17:54:42",
+                      "updatedAt": "2015-12-28 17:54:42",
+                      "automation": null,
+                      "automation_end": null,
+                      "actions": null,
+                      "status": 4,
+                      "shared_id": null,
+                      "clicked_a01": null,
+                      "clicked_a02": null,
+                      "schedule_pretty_time": "06:55 AM",
+                      "schedule_pretty_date": "12/28/2015",
+                      "campaign_results": {
+                        "sent": 27,
+                        "delivered": 27,
+                        "bounced": 0,
+                        "clicked": 2,
+                        "clicked_a01": 0,
+                        "clicked_a02": 0,
+                        "conversions": 0
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 259,
+                      "default": 0
+                    },
+                    "uid": {
+                      "type": "string",
+                      "example": "76cedd11b19e"
+                    },
+                    "idSite": {
+                      "type": "integer",
+                      "example": 179,
+                      "default": 0
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Sample Campaign #1"
+                    },
+                    "title": {
+                      "type": "string",
+                      "example": "Welcome to Aimtell!"
+                    },
+                    "body": {
+                      "type": "string",
+                      "example": "Got questions? Check out our knowledge base."
+                    },
+                    "link": {
+                      "type": "string",
+                      "example": "https://kb.aimtell.com"
+                    },
+                    "customIcon": {},
+                    "customImage": {},
+                    "segments": {
+                      "type": "string",
+                      "example": "245"
+                    },
+                    "conversion_trigger": {},
+                    "push_ttl": {
+                      "type": "integer",
+                      "example": 0,
+                      "default": 0
+                    },
+                    "auto_hide": {},
+                    "collapse_key": {},
+                    "schedule_date": {
+                      "type": "string",
+                      "example": "2024-12-11 12:12:00"
+                    },
+                    "ab_version": {},
+                    "ab_linked_campaign": {},
+                    "push_src": {},
+                    "push_src_values": {},
+                    "tz_delivery": {
+                      "type": "integer",
+                      "example": 0,
+                      "default": 0
+                    },
+                    "sent_date": {},
+                    "createdAt": {
+                      "type": "string",
+                      "example": "2015-12-28 17:54:42"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "example": "2015-12-28 17:54:42"
+                    },
+                    "automation": {},
+                    "automation_end": {},
+                    "actions": {},
+                    "status": {
+                      "type": "integer",
+                      "example": 4,
+                      "default": 0
+                    },
+                    "shared_id": {},
+                    "clicked_a01": {},
+                    "clicked_a02": {},
+                    "schedule_pretty_time": {
+                      "type": "string",
+                      "example": "06:55 AM"
+                    },
+                    "schedule_pretty_date": {
+                      "type": "string",
+                      "example": "12/28/2015"
+                    },
+                    "campaign_results": {
+                      "type": "object",
+                      "properties": {
+                        "sent": {
+                          "type": "integer",
+                          "example": 27,
+                          "default": 0
+                        },
+                        "delivered": {
+                          "type": "integer",
+                          "example": 27,
+                          "default": 0
+                        },
+                        "bounced": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "clicked": {
+                          "type": "integer",
+                          "example": 2,
+                          "default": 0
+                        },
+                        "clicked_a01": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "clicked_a02": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "conversions": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Invalid token.",
+                      "error_code": 71831
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid token."
+                    },
+                    "error_code": {
+                      "type": "integer",
+                      "example": 71831,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Manual Campaigns"
+        ]
+      },
+      "put": {
+        "summary": "Update Campaign",
+        "description": "Updates a Specific Campaign\n\nNOTE: When updating a campaign with A/B testing enabled,  the version_b status param (1 or 2) must be included to ensure that parameters shared by A and B  versions are updated in both campaigns (schedule_date, segments, automation, automation_end, push_ttl, auto_hide, tz_delivery, status). When updating the status of a campaign with A/B testing enabled, both the status param and the version_b status param must be set.",
+        "operationId": "update-campaign",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Campaign ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Name of Campaign"
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "Push Title"
+                  },
+                  "body": {
+                    "type": "string",
+                    "description": "Push Body"
+                  },
+                  "link": {
+                    "type": "string",
+                    "description": "Push Link"
+                  },
+                  "schedule_date": {
+                    "type": "string",
+                    "description": "DateTime (i.e. 2017-08-25 21:16:50)",
+                    "format": "date"
+                  },
+                  "segments": {
+                    "type": "string",
+                    "description": "Segments"
+                  },
+                  "automation": {
+                    "type": "string",
+                    "description": "Automation (d = daily, w = weekly, m = monthly, n = none)"
+                  },
+                  "automation_end": {
+                    "type": "string",
+                    "description": "Automation End Date (e.g. 2017-08-25 17:00:00)",
+                    "format": "date"
+                  },
+                  "push_ttl": {
+                    "type": "integer",
+                    "description": "Expiration Time (in seconds)",
+                    "format": "int32"
+                  },
+                  "auto_hide": {
+                    "type": "integer",
+                    "description": "Auto Hide (in seconds)",
+                    "format": "int32"
+                  },
+                  "collapse_key": {
+                    "type": "string",
+                    "description": "replace visible notifications on a subscribers device replace visible notifications on a subscribers device (e.g. breaking_news)"
+                  },
+                  "tz_delivery": {
+                    "type": "integer",
+                    "description": "deliver based on user's timezone (set 0 for false, 1 for true)",
+                    "format": "int32"
+                  },
+                  "customIcon": {
+                    "type": "string",
+                    "description": "url of custom icon to use (recommended size: 250x250)"
+                  },
+                  "customImage": {
+                    "type": "string",
+                    "description": "url of custom image to use (recommended size: 300x500)"
+                  },
+                  "status": {
+                    "type": "integer",
+                    "description": "set 1 for draft, 2 for scheduled",
+                    "default": 1,
+                    "format": "int32"
+                  },
+                  "version_b": {
+                    "type": "object",
+                    "description": "(optional) Version B for A/B test campaign",
+                    "properties": {
+                      "status": {
+                        "type": "integer",
+                        "description": "set 1 for draft, 2 for scheduled (must match version a)",
+                        "format": "int32"
+                      },
+                      "title": {
+                        "type": "string",
+                        "description": "(version b) push title"
+                      },
+                      "body": {
+                        "type": "string",
+                        "description": "(version b) push body"
+                      },
+                      "link": {
+                        "type": "string",
+                        "description": "(version b) push link"
+                      },
+                      "customIcon": {
+                        "type": "string",
+                        "description": "(version b)  string url of custom icon to use (recommended size: 250x250)"
+                      },
+                      "customImage": {
+                        "type": "string",
+                        "description": "(version b) url of custom image to use (recommended size: 300x500)"
+                      },
+                      "actions": {
+                        "type": "object",
+                        "description": "action buttons",
+                        "properties": {
+                          "a01": {
+                            "type": "object",
+                            "properties": {
+                              "title": {
+                                "type": "string",
+                                "description": "Text of action button"
+                              },
+                              "link": {
+                                "type": "string",
+                                "description": "Link/URL of action when clicked"
+                              }
+                            }
+                          },
+                          "a02": {
+                            "type": "object",
+                            "properties": {
+                              "title": {
+                                "type": "string",
+                                "description": "Text of action button"
+                              },
+                              "link": {
+                                "type": "string",
+                                "description": "Link/URL of action when clicked"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "conversion_trigger": {
+                    "type": "object",
+                    "properties": {
+                      "eventCategory": {
+                        "type": "string",
+                        "description": "Category of event"
+                      },
+                      "eventAction": {
+                        "type": "string",
+                        "description": "Action of event"
+                      }
+                    }
+                  },
+                  "actions": {
+                    "type": "object",
+                    "description": "action buttons",
+                    "properties": {
+                      "a01": {
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string",
+                            "description": "Text of action button"
+                          },
+                          "link": {
+                            "type": "string",
+                            "description": "Link/URL of action when clicked"
+                          }
+                        }
+                      },
+                      "a02": {
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string",
+                            "description": "Text of action button"
+                          },
+                          "link": {
+                            "type": "string",
+                            "description": "Link/URL of action when clicked"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "success",
+                      "campaignId": "133321"
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "campaignId": {
+                      "type": "string",
+                      "example": "133321"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Error #136."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Error #136."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Please specify a valid auth_token."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Please specify a valid auth_token."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Manual Campaigns"
+        ]
+      },
+      "delete": {
+        "summary": "Delete Campaign",
+        "description": "Delete a specific Campaign.",
+        "operationId": "delete-campaign",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Campaign ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "success",
+                      "message": "campaign deleted",
+                      "campaignId": "80"
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "campaign deleted"
+                    },
+                    "campaignId": {
+                      "type": "string",
+                      "example": "80"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Please specify a valid auth_token."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Please specify a valid auth_token."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Manual Campaigns"
+        ]
+      }
+    },
+    "/prod/campaign/{id}/clicks": {
+      "get": {
+        "summary": "Get Manual Campaign Clicks",
+        "description": "Enables you to fetch all clicks from a MANUAL campaign, broken down on a subscriber level.",
+        "operationId": "get-campaign-clicks",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Campaign ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": [
+                      {
+                        "subscriber_uid": "63779e18-6c2c-4dd0-da76-ace61926fc53",
+                        "created_at": "2017-02-16 18:13:54"
+                      },
+                      {
+                        "subscriber_uid": "514870c5-665e-effb-34d9-b8bbd9dd3467",
+                        "created_at": "2017-02-16 13:11:21"
+                      },
+                      {
+                        "subscriber_uid": "59bc3f07-915c-e1c3-8a81-6ad82ad783a0",
+                        "created_at": "2017-02-15 21:01:58"
+                      },
+                      {
+                        "subscriber_uid": "da554ad4-1f77-dde0-b598-d0a386883ab4",
+                        "created_at": "2017-02-14 23:33:16"
+                      },
+                      {
+                        "subscriber_uid": "958645fc-9e85-b3a8-2a15-35d278417be8",
+                        "created_at": "2017-02-14 22:12:21"
+                      }
+                    ]
+                  }
+                },
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "subscriber_uid": {
+                        "type": "string",
+                        "example": "63779e18-6c2c-4dd0-da76-ace61926fc53"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "example": "2017-02-16 18:13:54"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Invalid token.",
+                      "error_code": 71831
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid token."
+                    },
+                    "error_code": {
+                      "type": "integer",
+                      "example": 71831,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Manual Campaigns"
+        ]
+      }
+    },
+    "/prod/campaign/{id}/results": {
+      "get": {
+        "summary": "Get Manual Campaign Results (By Day)",
+        "description": "Fetches Manual Campaign Results (by Day)\nRevenue for Monetized Campaigns is Included in Results",
+        "operationId": "get-manual-campaign-results-by-day",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Campaign ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "Date",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "Date",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "sent": {
+                        "03/05/2017": 9,
+                        "03/06/2017": 8,
+                        "03/07/2017": 3,
+                        "03/08/2017": 4,
+                        "03/09/2017": 10
+                      },
+                      "delivered": {
+                        "03/05/2017": 9,
+                        "03/06/2017": 8,
+                        "03/07/2017": 3,
+                        "03/08/2017": 4,
+                        "03/09/2017": 10
+                      },
+                      "bounced": {
+                        "03/05/2017": 0,
+                        "03/06/2017": 0,
+                        "03/07/2017": 0,
+                        "03/08/2017": 0,
+                        "03/09/2017": 0
+                      },
+                      "clicked": {
+                        "03/05/2017": 6,
+                        "03/06/2017": 8,
+                        "03/07/2017": 2,
+                        "03/08/2017": 4,
+                        "03/09/2017": 5
+                      },
+                      "conversions": {
+                        "03/05/2017": 2,
+                        "03/06/2017": 8,
+                        "03/07/2017": 2,
+                        "03/08/2017": 3,
+                        "03/09/2017": 5
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "sent": {
+                      "type": "object",
+                      "properties": {
+                        "03/05/2017": {
+                          "type": "integer",
+                          "example": 9,
+                          "default": 0
+                        },
+                        "03/06/2017": {
+                          "type": "integer",
+                          "example": 8,
+                          "default": 0
+                        },
+                        "03/07/2017": {
+                          "type": "integer",
+                          "example": 3,
+                          "default": 0
+                        },
+                        "03/08/2017": {
+                          "type": "integer",
+                          "example": 4,
+                          "default": 0
+                        },
+                        "03/09/2017": {
+                          "type": "integer",
+                          "example": 10,
+                          "default": 0
+                        }
+                      }
+                    },
+                    "delivered": {
+                      "type": "object",
+                      "properties": {
+                        "03/05/2017": {
+                          "type": "integer",
+                          "example": 9,
+                          "default": 0
+                        },
+                        "03/06/2017": {
+                          "type": "integer",
+                          "example": 8,
+                          "default": 0
+                        },
+                        "03/07/2017": {
+                          "type": "integer",
+                          "example": 3,
+                          "default": 0
+                        },
+                        "03/08/2017": {
+                          "type": "integer",
+                          "example": 4,
+                          "default": 0
+                        },
+                        "03/09/2017": {
+                          "type": "integer",
+                          "example": 10,
+                          "default": 0
+                        }
+                      }
+                    },
+                    "bounced": {
+                      "type": "object",
+                      "properties": {
+                        "03/05/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/06/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/07/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/08/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/09/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        }
+                      }
+                    },
+                    "clicked": {
+                      "type": "object",
+                      "properties": {
+                        "03/05/2017": {
+                          "type": "integer",
+                          "example": 6,
+                          "default": 0
+                        },
+                        "03/06/2017": {
+                          "type": "integer",
+                          "example": 8,
+                          "default": 0
+                        },
+                        "03/07/2017": {
+                          "type": "integer",
+                          "example": 2,
+                          "default": 0
+                        },
+                        "03/08/2017": {
+                          "type": "integer",
+                          "example": 4,
+                          "default": 0
+                        },
+                        "03/09/2017": {
+                          "type": "integer",
+                          "example": 5,
+                          "default": 0
+                        }
+                      }
+                    },
+                    "conversions": {
+                      "type": "object",
+                      "properties": {
+                        "03/05/2017": {
+                          "type": "integer",
+                          "example": 2,
+                          "default": 0
+                        },
+                        "03/06/2017": {
+                          "type": "integer",
+                          "example": 8,
+                          "default": 0
+                        },
+                        "03/07/2017": {
+                          "type": "integer",
+                          "example": 2,
+                          "default": 0
+                        },
+                        "03/08/2017": {
+                          "type": "integer",
+                          "example": 3,
+                          "default": 0
+                        },
+                        "03/09/2017": {
+                          "type": "integer",
+                          "example": 5,
+                          "default": 0
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Invalid token.",
+                      "error_code": 71831
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid token."
+                    },
+                    "error_code": {
+                      "type": "integer",
+                      "example": 71831,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Manual Campaigns"
+        ]
+      }
+    },
+    "/prod/campaigns/": {
+      "post": {
+        "summary": "Create Campaign",
+        "description": "Create a Campaign",
+        "operationId": "create-campaign",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "idSite"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Campaign Name"
+                  },
+                  "idSite": {
+                    "type": "string",
+                    "description": "Site ID"
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "Push Title"
+                  },
+                  "body": {
+                    "type": "string",
+                    "description": "Push Body"
+                  },
+                  "link": {
+                    "type": "string",
+                    "description": "Link"
+                  },
+                  "schedule_date": {
+                    "type": "string",
+                    "description": "DateTime (e.g. 2017-08-25 21:16:50)",
+                    "format": "date"
+                  },
+                  "segments": {
+                    "type": "string",
+                    "description": "Segments"
+                  },
+                  "automation": {
+                    "type": "string",
+                    "description": "Automation (d = daily, w = weekly, m = monthly, n = none)"
+                  },
+                  "push_ttl": {
+                    "type": "integer",
+                    "description": "expiration time (in seconds)",
+                    "format": "int32"
+                  },
+                  "collapse_key": {
+                    "type": "string",
+                    "description": "replace visible notifications on a subscribers device (e.g. breaking_news)"
+                  },
+                  "auto_hide": {
+                    "type": "integer",
+                    "description": "Auto Hide (in seconds)",
+                    "format": "int32"
+                  },
+                  "tz_delivery": {
+                    "type": "integer",
+                    "description": "deliver based on user's timezone (set 0 for false, 1 for true)",
+                    "format": "int32"
+                  },
+                  "status": {
+                    "type": "string",
+                    "description": "1 = draft, 2 = scheduled",
+                    "default": "1"
+                  },
+                  "customIcon": {
+                    "type": "string",
+                    "description": "url of custom icon to use (recommended size: 250x250)"
+                  },
+                  "customImage": {
+                    "type": "string",
+                    "description": "url of custom image to use (recommended size: 300x500)"
+                  },
+                  "conversion_trigger": {
+                    "type": "object",
+                    "properties": {
+                      "eventCategory": {
+                        "type": "string",
+                        "description": "Category of event"
+                      },
+                      "eventAction": {
+                        "type": "string",
+                        "description": "Action of event"
+                      }
+                    }
+                  },
+                  "actions": {
+                    "type": "object",
+                    "description": "action buttons",
+                    "properties": {
+                      "a01": {
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string",
+                            "description": "Text of action button"
+                          },
+                          "link": {
+                            "type": "string",
+                            "description": "Link/URL of action when clicked"
+                          }
+                        }
+                      },
+                      "a02": {
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string",
+                            "description": "Text of action button"
+                          },
+                          "link": {
+                            "type": "string",
+                            "description": "Link/URL of action when clicked"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "success",
+                      "campaignId": 72129
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "campaignId": {
+                      "type": "integer",
+                      "example": 72129,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Error #139."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Error #139."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Manual Campaigns"
+        ]
+      }
+    },
+    "/prod/campaigns/{idSite}": {
+      "post": {
+        "summary": "Create Campaign (Batch)",
+        "description": "Create Multiple Campaigns",
+        "operationId": "api-create-campaign-batch",
+        "parameters": [
+          {
+            "name": "idSite",
+            "in": "path",
+            "description": "Site ID",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "RAW_BODY": {
+                    "type": "array",
+                    "description": "Array of objects with campaign params",
+                    "items": {
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "Campaign Name"
+                        },
+                        "title": {
+                          "type": "string",
+                          "description": "Push Title"
+                        },
+                        "body": {
+                          "type": "string",
+                          "description": "Push Body"
+                        },
+                        "link": {
+                          "type": "string",
+                          "description": "Link"
+                        },
+                        "schedule_date": {
+                          "type": "string",
+                          "description": "DateTime (i.e. 2017-08-25 21:16:50)",
+                          "format": "date"
+                        },
+                        "segments": {
+                          "type": "string",
+                          "description": "Segments"
+                        },
+                        "automation": {
+                          "type": "string",
+                          "description": "Automation (d = daily, w = weekly, m = monthly, n = none)"
+                        },
+                        "push_ttl": {
+                          "type": "integer",
+                          "description": "Expiration Time (in seconds)",
+                          "format": "int32"
+                        },
+                        "status": {
+                          "type": "integer",
+                          "description": "1 = draft, 2 = scheduled",
+                          "format": "int32"
+                        },
+                        "customIcon": {
+                          "type": "string",
+                          "description": "url of custom icon to use (recommended size: 250x250)"
+                        },
+                        "customImage": {
+                          "type": "string",
+                          "description": "url of custom image to use (recommended size: 300x500)"
+                        },
+                        "conversion_trigger": {
+                          "type": "object",
+                          "description": "Conversion Trigger object"
+                        },
+                        "conversion_trigger.eventAction": {
+                          "type": "string",
+                          "description": "Event Action"
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ],
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": [
+                      {
+                        "result": "error",
+                        "message": "Insufficient permissions."
+                      },
+                      {
+                        "result": "success",
+                        "campaignId": 480830
+                      }
+                    ]
+                  }
+                },
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "result": {
+                        "type": "string",
+                        "example": "error"
+                      },
+                      "message": {
+                        "type": "string",
+                        "example": "Insufficient permissions."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Manual Campaigns"
+        ]
+      },
+      "put": {
+        "summary": "Update Campaign (Batch)",
+        "description": "Update Multiple Campaigns",
+        "operationId": "api-update-campaign-batch",
+        "parameters": [
+          {
+            "name": "idSite",
+            "in": "path",
+            "description": "Site ID",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "RAW_BODY": {
+                    "type": "array",
+                    "description": "Array of objects with campaign parameters",
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "Campaign ID"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Campaign Name"
+                        },
+                        "title": {
+                          "type": "string",
+                          "description": "Push Title"
+                        },
+                        "body": {
+                          "type": "string",
+                          "description": "Push Body"
+                        },
+                        "link": {
+                          "type": "string",
+                          "description": "Push Link"
+                        },
+                        "schedule_date": {
+                          "type": "string",
+                          "description": "DateTime (e.g. 2017-08-25 21:16:50)",
+                          "format": "date"
+                        },
+                        "segments": {
+                          "type": "string",
+                          "description": "Segments"
+                        },
+                        "customIcon": {
+                          "type": "string",
+                          "description": "URL of custom icon to use (recommended size: 250x250)"
+                        },
+                        "customImage": {
+                          "type": "string",
+                          "description": "URL of custom image to use (recommended size: 300x500)"
+                        },
+                        "status": {
+                          "type": "integer",
+                          "description": "1 = draft, 2 = scheduled",
+                          "format": "int32"
+                        },
+                        "version_b": {
+                          "type": "object",
+                          "description": "(optional) Version B for A/B test campaign"
+                        },
+                        "version_b.title": {
+                          "type": "string",
+                          "description": "(Version B) Push Title"
+                        },
+                        "version_b.body": {
+                          "type": "string",
+                          "description": "(Version B) Push Body"
+                        },
+                        "version_b.link": {
+                          "type": "string",
+                          "description": "(Version B) Push Link"
+                        },
+                        "version_b.customIcon": {
+                          "type": "string",
+                          "description": "(Version B) string url of custom icon to use (recommended size: 250x250)"
+                        },
+                        "version_b.customImage": {
+                          "type": "string",
+                          "description": "(Version B) string url of custom image to use (recommended size: 250x250)"
+                        },
+                        "conversion_trigger": {
+                          "type": "object",
+                          "description": "Conversion Trigger"
+                        },
+                        "conversion_trigger.eventCategory": {
+                          "type": "string",
+                          "description": "Event Category"
+                        },
+                        "conversion_trigger.eventAction": {
+                          "type": "string",
+                          "description": "Event Action"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ],
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": [
+                      {
+                        "result": "error",
+                        "message": "Insufficient permissions."
+                      },
+                      {
+                        "result": "success",
+                        "campaignId": 480830
+                      }
+                    ]
+                  }
+                },
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "result": {
+                        "type": "string",
+                        "example": "error"
+                      },
+                      "message": {
+                        "type": "string",
+                        "example": "Insufficient permissions."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Manual Campaigns"
+        ]
+      },
+      "delete": {
+        "summary": "Delete Campaign (Batch)",
+        "description": "Delete Multiple Campaigns",
+        "operationId": "api-delete-campaign-batch",
+        "parameters": [
+          {
+            "name": "idSite",
+            "in": "path",
+            "description": "Site ID",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "RAW_BODY": {
+                    "type": "array",
+                    "description": "Object with campaign params",
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "Campaign ID"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": [
+                      {
+                        "result": "error",
+                        "message": "Insufficient permissions."
+                      },
+                      {
+                        "result": "success",
+                        "campaignId": 480830
+                      }
+                    ]
+                  }
+                },
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "result": {
+                        "type": "string",
+                        "example": "error"
+                      },
+                      "message": {
+                        "type": "string",
+                        "example": "Insufficient permissions."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Manual Campaigns"
+        ]
+      }
+    },
+    "/prod/site/{idSite}/welcome": {
+      "get": {
+        "summary": "Get Welcome Campaign",
+        "description": "Fetches the Welcome Campaign for a specific website",
+        "operationId": "api-get-welcome-campaign",
+        "parameters": [
+          {
+            "name": "idSite",
+            "in": "path",
+            "description": "Website ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "id": 1234,
+                      "title": "Sample Welcome Campaign",
+                      "body": "Thanks for joining us!",
+                      "link": "{website_url}",
+                      "customImage": "",
+                      "customIcon": "https://cdn.aimtell.io/user/uploads/12345-1588183932.png",
+                      "idSite": 20599,
+                      "status": 1,
+                      "conversion_trigger": {
+                        "eventCategory": "Page",
+                        "eventAction": "Visited",
+                        "eventLabel": ""
+                      },
+                      "actions": {
+                        "a01": {
+                          "title": "Get the best deals!",
+                          "link": "{website_url}"
+                        },
+                        "a02": {
+                          "title": "Check out our blog!",
+                          "link": "{website_url}/blog"
+                        }
+                      },
+                      "createdAt": "2020-04-29 18:12:57",
+                      "updatedAt": "2020-12-18 16:15:40",
+                      "campaign_results": {
+                        "sent": 13,
+                        "delivered": 13,
+                        "bounced": 0,
+                        "clicked": 5,
+                        "clicked_a01": 0,
+                        "clicked_a02": 0,
+                        "conversions": 1
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1234,
+                      "default": 0
+                    },
+                    "title": {
+                      "type": "string",
+                      "example": "Sample Welcome Campaign"
+                    },
+                    "body": {
+                      "type": "string",
+                      "example": "Thanks for joining us!"
+                    },
+                    "link": {
+                      "type": "string",
+                      "example": "{website_url}"
+                    },
+                    "customImage": {
+                      "type": "string",
+                      "example": ""
+                    },
+                    "customIcon": {
+                      "type": "string",
+                      "example": "https://cdn.aimtell.io/user/uploads/12345-1588183932.png"
+                    },
+                    "idSite": {
+                      "type": "integer",
+                      "example": 20599,
+                      "default": 0
+                    },
+                    "status": {
+                      "type": "integer",
+                      "example": 1,
+                      "default": 0
+                    },
+                    "conversion_trigger": {
+                      "type": "object",
+                      "properties": {
+                        "eventCategory": {
+                          "type": "string",
+                          "example": "Page"
+                        },
+                        "eventAction": {
+                          "type": "string",
+                          "example": "Visited"
+                        },
+                        "eventLabel": {
+                          "type": "string",
+                          "example": ""
+                        }
+                      }
+                    },
+                    "actions": {
+                      "type": "object",
+                      "properties": {
+                        "a01": {
+                          "type": "object",
+                          "properties": {
+                            "title": {
+                              "type": "string",
+                              "example": "Get the best deals!"
+                            },
+                            "link": {
+                              "type": "string",
+                              "example": "{website_url}"
+                            }
+                          }
+                        },
+                        "a02": {
+                          "type": "object",
+                          "properties": {
+                            "title": {
+                              "type": "string",
+                              "example": "Check out our blog!"
+                            },
+                            "link": {
+                              "type": "string",
+                              "example": "{website_url}/blog"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "example": "2020-04-29 18:12:57"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "example": "2020-12-18 16:15:40"
+                    },
+                    "campaign_results": {
+                      "type": "object",
+                      "properties": {
+                        "sent": {
+                          "type": "integer",
+                          "example": 13,
+                          "default": 0
+                        },
+                        "delivered": {
+                          "type": "integer",
+                          "example": 13,
+                          "default": 0
+                        },
+                        "bounced": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "clicked": {
+                          "type": "integer",
+                          "example": 5,
+                          "default": 0
+                        },
+                        "clicked_a01": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "clicked_a02": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "conversions": {
+                          "type": "integer",
+                          "example": 1,
+                          "default": 0
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Invalid token.",
+                      "error_code": 71831
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid token."
+                    },
+                    "error_code": {
+                      "type": "integer",
+                      "example": 71831,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Welcome Notifications"
+        ]
+      }
+    },
+    "/prod/welcome-notifications/{id}/results": {
+      "get": {
+        "summary": "Get Welcome Campaign Results (By Day)",
+        "description": "Fetches Welcome Campaign Results (by Day)",
+        "operationId": "api-get-welcome-campaign-results-by-day",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Campaign ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "Date",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "Date",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "sent": {
+                        "03/05/2017": 0,
+                        "03/06/2017": 0,
+                        "03/07/2017": 0,
+                        "03/08/2017": 0,
+                        "03/09/2017": 0
+                      },
+                      "delivered": {
+                        "03/05/2017": 0,
+                        "03/06/2017": 0,
+                        "03/07/2017": 0,
+                        "03/08/2017": 0,
+                        "03/09/2017": 0
+                      },
+                      "bounced": {
+                        "03/05/2017": 0,
+                        "03/06/2017": 0,
+                        "03/07/2017": 0,
+                        "03/08/2017": 0,
+                        "03/09/2017": 0
+                      },
+                      "clicked": {
+                        "03/05/2017": 0,
+                        "03/06/2017": 0,
+                        "03/07/2017": 0,
+                        "03/08/2017": 0,
+                        "03/09/2017": 0
+                      },
+                      "conversions": {
+                        "03/05/2017": 0,
+                        "03/06/2017": 0,
+                        "03/07/2017": 0,
+                        "03/08/2017": 0,
+                        "03/09/2017": 0
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "sent": {
+                      "type": "object",
+                      "properties": {
+                        "03/05/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/06/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/07/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/08/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/09/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        }
+                      }
+                    },
+                    "delivered": {
+                      "type": "object",
+                      "properties": {
+                        "03/05/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/06/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/07/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/08/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/09/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        }
+                      }
+                    },
+                    "bounced": {
+                      "type": "object",
+                      "properties": {
+                        "03/05/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/06/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/07/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/08/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/09/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        }
+                      }
+                    },
+                    "clicked": {
+                      "type": "object",
+                      "properties": {
+                        "03/05/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/06/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/07/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/08/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/09/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        }
+                      }
+                    },
+                    "conversions": {
+                      "type": "object",
+                      "properties": {
+                        "03/05/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/06/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/07/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/08/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/09/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Invalid token.",
+                      "error_code": 71831
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid token."
+                    },
+                    "error_code": {
+                      "type": "integer",
+                      "example": 71831,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Welcome Notifications"
+        ]
+      }
+    },
+    "/prod/site/{idSite}/welcome/upsert": {
+      "post": {
+        "summary": "Update Welcome Campaign",
+        "description": "Update a Welcome Campaign for a Specific Website",
+        "operationId": "api-upsert-welcome-campaign",
+        "parameters": [
+          {
+            "name": "idSite",
+            "in": "path",
+            "description": "Site ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "title",
+                  "body",
+                  "link",
+                  "status"
+                ],
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "Push Title"
+                  },
+                  "body": {
+                    "type": "string",
+                    "description": "Push Body"
+                  },
+                  "link": {
+                    "type": "string",
+                    "description": "Link"
+                  },
+                  "status": {
+                    "type": "string",
+                    "description": "0 = draft, 1 = active",
+                    "default": "0"
+                  },
+                  "customIcon": {
+                    "type": "string",
+                    "description": "url of custom icon to use (recommended size: 250x250)"
+                  },
+                  "customImage": {
+                    "type": "string",
+                    "description": "url of custom image to use (recommended size: 300x500)"
+                  },
+                  "conversion_trigger": {
+                    "type": "object",
+                    "properties": {
+                      "eventCategory": {
+                        "type": "string",
+                        "description": "Category of event"
+                      },
+                      "eventAction": {
+                        "type": "string",
+                        "description": "Action of event"
+                      }
+                    }
+                  },
+                  "actions": {
+                    "type": "object",
+                    "description": "action buttons",
+                    "properties": {
+                      "a01": {
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string",
+                            "description": "Text of action button"
+                          },
+                          "link": {
+                            "type": "string",
+                            "description": "Link/URL of action when clicked"
+                          }
+                        }
+                      },
+                      "a02": {
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string",
+                            "description": "Text of action button"
+                          },
+                          "link": {
+                            "type": "string",
+                            "description": "Link/URL of action when clicked"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "success",
+                      "message": "Updated welcome message succesfully."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Updated welcome message succesfully."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Error #139."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Error #139."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Welcome Notifications"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "One-Off Notifications",
+      "description": "Send individual push notifications"
+    },
+    {
+      "name": "Welcome Notifications",
+      "description": "Welcome notification campaigns"
+    },
+    {
+      "name": "Triggered Campaigns",
+      "description": "Event-triggered push notification campaigns"
+    },
+    {
+      "name": "RSS Campaigns",
+      "description": "RSS feed-based push notification campaigns"
+    },
+    {
+      "name": "Manual Campaigns",
+      "description": "Manually created push notification campaigns"
+    }
+  ]
+}

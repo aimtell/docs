@@ -1,0 +1,2011 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "sites",
+    "version": "1.1"
+  },
+  "servers": [
+    {
+      "url": "https://api.aimtell.com"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "sec0": {
+        "type": "apiKey",
+        "name": "X-Authorization-Api-Key",
+        "in": "header",
+        "x-default": ""
+      }
+    }
+  },
+  "security": [
+    {
+      "sec0": []
+    }
+  ],
+  "paths": {
+    "/prod/sites/": {
+      "get": {
+        "summary": "Get All Websites",
+        "description": "Grabs all active websites for account.",
+        "operationId": "get-all-websites",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Skip",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "load",
+            "in": "query",
+            "description": "Load Additional Information (i.e. subscriber_count)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": [
+                      {
+                        "id": 179,
+                        "uid": "76cedd11b19e",
+                        "url": "https://demo.aimtell.com",
+                        "name": "Demo Website",
+                        "icon": "https://s3.amazonaws.com/siteicons.aimtell.com/icon_40_1443032714..jpg",
+                        "promptId": 0,
+                        "webPushID": null,
+                        "auto_prompt": 1,
+                        "createdAt": "2015-12-28 17:54:42",
+                        "active": 1
+                      },
+                      {
+                        "id": 999,
+                        "uid": "76cedd11b19e",
+                        "url": "https://example.aimtell.com",
+                        "name": "Example Aimtell ",
+                        "icon": "https://s3.amazonaws.com/siteicons.aimtell.com/icon_999_1485981616.png",
+                        "promptId": 200,
+                        "webPushID": "web.20.aimtell.com",
+                        "auto_prompt": 1,
+                        "createdAt": "2016-06-01 21:40:05",
+                        "active": 1
+                      },
+                      {
+                        "id": 2634,
+                        "uid": "76cedd11b19e",
+                        "url": "https://wordpress.aimtell.com",
+                        "name": "wordpress site",
+                        "icon": "https://s3.amazonaws.com/siteicons.aimtell.com/icon_2634_1487894753.png",
+                        "promptId": null,
+                        "webPushID": "web.16.aimtell.com",
+                        "auto_prompt": 1,
+                        "createdAt": "2017-02-24 00:07:25",
+                        "active": 1
+                      }
+                    ]
+                  }
+                },
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 179,
+                        "default": 0
+                      },
+                      "uid": {
+                        "type": "string",
+                        "example": "76cedd11b19e"
+                      },
+                      "url": {
+                        "type": "string",
+                        "example": "https://demo.aimtell.com"
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Demo Website"
+                      },
+                      "icon": {
+                        "type": "string",
+                        "example": "https://s3.amazonaws.com/siteicons.aimtell.com/icon_40_1443032714..jpg"
+                      },
+                      "promptId": {
+                        "type": "integer",
+                        "example": 0,
+                        "default": 0
+                      },
+                      "webPushID": {},
+                      "auto_prompt": {
+                        "type": "integer",
+                        "example": 1,
+                        "default": 0
+                      },
+                      "createdAt": {
+                        "type": "string",
+                        "example": "2015-12-28 17:54:42"
+                      },
+                      "active": {
+                        "type": "integer",
+                        "example": 1,
+                        "default": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Invalid token.",
+                      "error_code": 71831
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid token."
+                    },
+                    "error_code": {
+                      "type": "integer",
+                      "example": 71831,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Websites"
+        ]
+      },
+      "post": {
+        "summary": "Add Website",
+        "description": "Add a Website to Account",
+        "operationId": "add-website",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "url",
+                  "name"
+                ],
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "description": "Website URL"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Name of Website"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "success",
+                      "message": "Added website https://fake.aimtell.com succesfully.",
+                      "id": 79
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Added website https://fake.aimtell.com succesfully."
+                    },
+                    "id": {
+                      "type": "integer",
+                      "example": 79,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Error #139."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Error #139."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Invalid token.",
+                      "error_code": 71831
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid token."
+                    },
+                    "error_code": {
+                      "type": "integer",
+                      "example": 71831,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Websites"
+        ]
+      }
+    },
+    "/prod/site/{id}": {
+      "get": {
+        "summary": "Get Website",
+        "description": "Returns information about a website",
+        "operationId": "api-get-website",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Site ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "id": 2459,
+                      "uid": "76cedd11b19e",
+                      "url": "https://example2459.aimtell.io",
+                      "name": "Example Site",
+                      "icon": "https://s3.amazonaws.com/siteicons.aimtell.com/icon_2459_1532715035.jpg",
+                      "promptId": 857,
+                      "webPushID": "web.3.aimtell.com",
+                      "auto_prompt": 1,
+                      "createdAt": "2017-01-31 18:32:52",
+                      "active": 1
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 2459,
+                      "default": 0
+                    },
+                    "uid": {
+                      "type": "string",
+                      "example": "76cedd11b19e"
+                    },
+                    "url": {
+                      "type": "string",
+                      "example": "https://example2459.aimtell.io"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Example Site"
+                    },
+                    "icon": {
+                      "type": "string",
+                      "example": "https://s3.amazonaws.com/siteicons.aimtell.com/icon_2459_1532715035.jpg"
+                    },
+                    "promptId": {
+                      "type": "integer",
+                      "example": 857,
+                      "default": 0
+                    },
+                    "webPushID": {
+                      "type": "string",
+                      "example": "web.3.aimtell.com"
+                    },
+                    "auto_prompt": {
+                      "type": "integer",
+                      "example": 1,
+                      "default": 0
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "example": "2017-01-31 18:32:52"
+                    },
+                    "active": {
+                      "type": "integer",
+                      "example": 1,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Invalid token.",
+                      "error_code": 71831
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid token."
+                    },
+                    "error_code": {
+                      "type": "integer",
+                      "example": 71831,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Websites"
+        ]
+      },
+      "put": {
+        "summary": "Update Website Details",
+        "description": "Update a Website's Name or Icon",
+        "operationId": "update-website",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Site ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Website Name"
+                  },
+                  "icon": {
+                    "type": "string",
+                    "description": "URL of Website Icon",
+                    "default": ""
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "success",
+                      "message": "Updated website succesfully.",
+                      "id": "1"
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Updated website succesfully."
+                    },
+                    "id": {
+                      "type": "string",
+                      "example": "1"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Error #136."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Error #136."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Please specify a valid auth_token."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Please specify a valid auth_token."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Websites"
+        ]
+      },
+      "delete": {
+        "summary": "Delete Website",
+        "description": "Delete a specific Website.",
+        "operationId": "delete-website",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Site ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "success",
+                      "message": "Successfully de-activated website.",
+                      "id": "79"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Please specify a valid auth_token."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Please specify a valid auth_token."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Websites"
+        ]
+      }
+    },
+    "/prod/site/{idSite}/permitted": {
+      "get": {
+        "summary": "Get Website Permissions",
+        "description": "Returns a list of users that have access to a site",
+        "operationId": "api-get-website-permissions",
+        "parameters": [
+          {
+            "name": "idSite",
+            "in": "path",
+            "description": "Site ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": [
+                      {
+                        "uid": "12abcd3456a7",
+                        "first_name": "John",
+                        "last_name": "Doe",
+                        "username": "johndoe@website.com",
+                        "owner": true
+                      },
+                      {
+                        "uid": "1abc234defg5",
+                        "first_name": "Jane",
+                        "last_name": "Doe",
+                        "username": "janedoe@website.com"
+                      }
+                    ]
+                  }
+                },
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "uid": {
+                        "type": "string",
+                        "example": "12abcd3456a7"
+                      },
+                      "first_name": {
+                        "type": "string",
+                        "example": "John"
+                      },
+                      "last_name": {
+                        "type": "string",
+                        "example": "Doe"
+                      },
+                      "username": {
+                        "type": "string",
+                        "example": "johndoe@website.com"
+                      },
+                      "owner": {
+                        "type": "boolean",
+                        "example": true,
+                        "default": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Invalid token.",
+                      "error_code": 71831
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid token."
+                    },
+                    "error_code": {
+                      "type": "integer",
+                      "example": 71831,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Websites Permissions"
+        ]
+      },
+      "post": {
+        "summary": "Grant Website Permissions",
+        "description": "Grants access to a site to a registered user by email address",
+        "operationId": "api-grant-website-permissions",
+        "parameters": [
+          {
+            "name": "idSite",
+            "in": "path",
+            "description": "Site ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "description": "email address of registered user"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "success",
+                      "message": "Added user ab123c4d55ef succesfully.",
+                      "id": 12345
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Added user ab123c4d55ef succesfully."
+                    },
+                    "id": {
+                      "type": "integer",
+                      "example": 12345,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "No user found.",
+                      "error_logged": true,
+                      "error_code": null
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "No user found."
+                    },
+                    "error_logged": {
+                      "type": "boolean",
+                      "example": true,
+                      "default": true
+                    },
+                    "error_code": {}
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Invalid token.",
+                      "error_code": 71831
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid token."
+                    },
+                    "error_code": {
+                      "type": "integer",
+                      "example": 71831,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Websites Permissions"
+        ]
+      },
+      "delete": {
+        "summary": "Remove Website Permissions",
+        "description": "Removes access to a site to a registered user by uid",
+        "operationId": "api-remove-website-permissions",
+        "parameters": [
+          {
+            "name": "idSite",
+            "in": "path",
+            "description": "Site ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "uid": {
+                    "type": "string",
+                    "description": "uid of user"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "success",
+                      "message": "Removed user ab123c4d55ef succesfully."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Removed user ab123c4d55ef succesfully."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Invalid token.",
+                      "error_code": 71831
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid token."
+                    },
+                    "error_code": {
+                      "type": "integer",
+                      "example": 71831,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Websites Permissions"
+        ]
+      }
+    },
+    "/prod/site/code/{id}": {
+      "get": {
+        "summary": "Get Website Code",
+        "description": "Returns Aimtell push & website tracking code.",
+        "operationId": "get-website-code",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Site ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "url": "demo.aimtell.com",
+                      "value": "<!-- start aimtell tracking code --> <script type='text/javascript'>var _at = {};_at.domain = 'demo.aimtell.com';_at.owner = '76cedd11b19e';_at.idSite = '179';_at.attributes = {};  (function() {var u='//api.aimtell.com/prod/';var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'trackpush.min.js'; s.parentNode.insertBefore(g,s);})();</script><!-- end aimtell tracking code -->",
+                      "idSite": 179,
+                      "uid": "76cedd11b19e"
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "example": "demo.aimtell.com"
+                    },
+                    "value": {
+                      "type": "string",
+                      "example": "<!-- start aimtell tracking code --> <script type='text/javascript'>var _at = {};_at.domain = 'demo.aimtell.com';_at.owner = '76cedd11b19e';_at.idSite = '179';_at.attributes = {};  (function() {var u='//api.aimtell.com/prod/';var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'trackpush.min.js'; s.parentNode.insertBefore(g,s);})();</script><!-- end aimtell tracking code -->"
+                    },
+                    "idSite": {
+                      "type": "integer",
+                      "example": 179,
+                      "default": 0
+                    },
+                    "uid": {
+                      "type": "string",
+                      "example": "76cedd11b19e"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Invalid token.",
+                      "error_code": 71831
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid token."
+                    },
+                    "error_code": {
+                      "type": "integer",
+                      "example": 71831,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Websites Settings"
+        ]
+      }
+    },
+    "/prod/site/{id}/settings": {
+      "get": {
+        "summary": "Get Website Settings",
+        "description": "Get a Website's Tracking Settings",
+        "operationId": "api-get-website-settings",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Site ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "success",
+                      "message": "Updated site settings"
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Updated site settings"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Error #136."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Error #136."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Please specify a valid auth_token."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Please specify a valid auth_token."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Websites Settings"
+        ]
+      },
+      "post": {
+        "summary": "Update Website Settings",
+        "description": "Update a Website's Tracking Settings",
+        "operationId": "update-website-settings",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Site ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "collect_ip",
+                  "collect_ip_as_attribute",
+                  "collect_suburl",
+                  "collect_ua_as_attribute",
+                  "track_clicks_as_events",
+                  "track_subscribe_as_event",
+                  "retention_length",
+                  "frequency_cap"
+                ],
+                "properties": {
+                  "collect_ip": {
+                    "type": "integer",
+                    "description": "Allow collection of IP Address (0 = false, 1 = true)",
+                    "default": 1,
+                    "format": "int32"
+                  },
+                  "collect_ip_as_attribute": {
+                    "type": "integer",
+                    "description": "Automatically track IP address as a custom attribute  (0 = false, 1 = true)",
+                    "default": 0,
+                    "format": "int32"
+                  },
+                  "collect_suburl": {
+                    "type": "integer",
+                    "description": "Automatically track subscription URL as custom attribute  (0 = false, 1 = true)",
+                    "default": 0,
+                    "format": "int32"
+                  },
+                  "collect_ua_as_attribute": {
+                    "type": "integer",
+                    "description": "Automatically track User Agent as custom attribute  (0 = false, 1 = true)",
+                    "default": 1,
+                    "format": "int32"
+                  },
+                  "track_clicks_as_events": {
+                    "type": "integer",
+                    "description": "Automatically track notification clicks as custom events.  (0 = false, 1 = true)",
+                    "default": 0,
+                    "format": "int32"
+                  },
+                  "track_subscribe_as_event": {
+                    "type": "integer",
+                    "description": "Automatically track subscriptions as custom events.  (0 = false, 1 = true)",
+                    "default": 0,
+                    "format": "int32"
+                  },
+                  "retention_length": {
+                    "type": "integer",
+                    "description": "Number of days to keep data for deleted subscribers",
+                    "default": "30",
+                    "format": "int32"
+                  },
+                  "frequency_cap": {
+                    "type": "integer",
+                    "description": "Max number of notifications a subscriber can receive per day",
+                    "default": 15,
+                    "format": "int32"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "success",
+                      "message": "Updated site settings"
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Updated site settings"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Error #136."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Error #136."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Please specify a valid auth_token."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Please specify a valid auth_token."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Websites Settings"
+        ]
+      }
+    },
+    "/prod/site/{id}/keys": {
+      "get": {
+        "summary": "Get Website Keys",
+        "description": "Gets a Website's VAPID or FCM Keys\n\nKeys that are marked \"is_primary\" are the ones that will be currently used on the site for new subscribers.\n\nIf the results are empty, this means you are using legacy Aimtell keys. We advise you to generate your own VAPID keys within the dashboard.",
+        "operationId": "api-get-website-keys",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Site ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": [
+                      {
+                        "id": 4158,
+                        "id_site": 2459,
+                        "type": "vapid",
+                        "pub": "BM2J8-VPPGUINMc5ZE5H-ewuE8ryMM3-h4GE4IHtKQap_PPJERb0T-_fppoDnOmyEdLU1Nb7xzcKFi5x9jEOMnI",
+                        "priv": "RM3m2AzedWxZzyYU0_ltzJFBJAxGalHZ_FAKEPRIVATEKEY",
+                        "is_primary": 1,
+                        "active": 1,
+                        "created_at": "2019-12-11 06:10:54",
+                        "updated_at": "2019-12-11 06:10:54"
+                      },
+                      {
+                        "id": 4086,
+                        "id_site": 2459,
+                        "type": "vapid",
+                        "pub": "BAYZiAyn2A7NYI606S9UVzHSzhXzUXYmTZE6Ii38c0qFfBofhUW3zwp05HYjBXpkXNIIGoNnXb3zC234wEc67Zs",
+                        "priv": "r_4nBwszaQ_1HfCorhudu33Z7vm_FAKEPRIVATEKEY",
+                        "is_primary": 0,
+                        "active": 1,
+                        "created_at": "2019-12-07 00:00:18",
+                        "updated_at": "2019-12-11 06:10:54"
+                      },
+                      {
+                        "id": 2,
+                        "id_site": 2459,
+                        "type": "gcm",
+                        "pub": "315084543558",
+                        "priv": "AAAASVyAlkY:APA91bGV2fr7-VHf-r3U9U-45i_Tkr5UyKha9k18w6-MM9NO3rc_HwFbEUmGJY_4TNyimvr6-ooveEMy8rder0VZ2beBgJSXW2SF7dcHijTeVxohbi8X8-f58cZdN0C2Ig7AZ65ePMxVWF-uvGBcxyuw_FAKEPRIVATEKEY",
+                        "is_primary": 0,
+                        "active": 1,
+                        "created_at": "2019-04-24 19:44:55",
+                        "updated_at": "2019-05-15 02:17:00"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Error #136."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Error #136."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Please specify a valid auth_token."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Please specify a valid auth_token."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Websites Settings"
+        ]
+      }
+    },
+    "/prod/site/{id}/keys/upsert": {
+      "post": {
+        "summary": "Upsert Website Keys",
+        "description": "Update a Website's VAPID or FCM Keys\n\nNote: this can directly impact your optin rate and/or push delivery. Only update these if you know what you are doing.",
+        "operationId": "api-upsert-website-keys",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Site ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "pub",
+                  "priv",
+                  "primary",
+                  "type"
+                ],
+                "properties": {
+                  "pub": {
+                    "type": "string",
+                    "description": "Public ID (either VAPID ID or FCM ID)"
+                  },
+                  "priv": {
+                    "type": "string",
+                    "description": "Private key attached to the public id"
+                  },
+                  "primary": {
+                    "type": "string",
+                    "description": "1 = primary, 0 = regular"
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "Must use either \"gcm\" or \"vapid\" (without quotes)"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "success",
+                      "message": "Website Key added/updated successfully"
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "success"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Website Key added/updated successfully"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Error #136."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Error #136."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Please specify a valid auth_token."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Please specify a valid auth_token."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Websites Settings"
+        ]
+      }
+    },
+    "/prod/site/variables/{id}": {
+      "get": {
+        "summary": "Get Website Custom Variables",
+        "description": "Gets a Website's Custom Variables",
+        "operationId": "api-get-website-custom-variables",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Site ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": [
+                      {
+                        "id": 1234,
+                        "id_site": 12345,
+                        "name": "site_identifier",
+                        "value": "website12345",
+                        "created_at": "2020-08-26 17:05:15",
+                        "updated_at": "2020-08-26 17:05:15",
+                        "snippet": "{custom_variable:site_identifier}"
+                      },
+                      {
+                        "id": 1235,
+                        "id_site": 12345,
+                        "name": "domain",
+                        "value": "website12345.com",
+                        "created_at": "2020-11-10 20:08:21",
+                        "updated_at": "2020-11-10 20:08:21",
+                        "snippet": "{custom_variable:domain}"
+                      },
+                      {
+                        "id": 1236,
+                        "id_site": 20599,
+                        "name": "source",
+                        "value": "aimtell",
+                        "created_at": "2020-08-26 17:26:51",
+                        "updated_at": "2020-08-26 17:26:51",
+                        "snippet": "{custom_variable:source}"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Error #136."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Error #136."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Please specify a valid auth_token."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Please specify a valid auth_token."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Websites Settings"
+        ]
+      },
+      "post": {
+        "summary": "Upsert Website Custom Variable",
+        "description": "Creates or Updates a Custom Variable for a Website",
+        "operationId": "api-creat-website-custom-variable",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Site ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "value"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Name of Custom Variable"
+                  },
+                  "value": {
+                    "type": "string",
+                    "description": "Value of Custom Variable"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": true
+                  }
+                },
+                "schema": {
+                  "type": "boolean",
+                  "example": true,
+                  "default": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Error #136."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Error #136."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Please specify a valid auth_token."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Please specify a valid auth_token."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Websites Settings"
+        ]
+      },
+      "delete": {
+        "summary": "Delete Website Custom Variable",
+        "description": "Deletes a Custom Variable for a Website by Name",
+        "operationId": "api-delete-website-custom-variable",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Site ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Name of Custom Variable"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": true
+                  }
+                },
+                "schema": {
+                  "type": "boolean",
+                  "example": true,
+                  "default": true
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Error #136."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Error #136."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Please specify a valid auth_token."
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Please specify a valid auth_token."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Websites Settings"
+        ]
+      }
+    }
+  }
+}
