@@ -54,67 +54,6 @@
                       "type": "intro"
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "uid": {
-                      "type": "string",
-                      "example": "76cedd11b19e"
-                    },
-                    "timezone": {
-                      "type": "string",
-                      "example": "America/Los_Angeles"
-                    },
-                    "registration_date": {
-                      "type": "string",
-                      "example": "2015-12-28 17:54:27"
-                    },
-                    "last_login": {
-                      "type": "string",
-                      "example": "2017-03-06 19:34:49"
-                    },
-                    "username": {
-                      "type": "string",
-                      "example": "demo@aimtell.com"
-                    },
-                    "auth_token": {
-                      "type": "string",
-                      "example": "AUTH_TOKEN_HERE"
-                    },
-                    "first_name": {
-                      "type": "string",
-                      "example": "Demo"
-                    },
-                    "last_name": {
-                      "type": "string",
-                      "example": "Aimtell"
-                    },
-                    "trial": {
-                      "type": "integer",
-                      "example": 0,
-                      "default": 0
-                    },
-                    "trial_end": {
-                      "type": "string",
-                      "example": "2016-12-07 17:54:50"
-                    },
-                    "teamId": {},
-                    "wp": {
-                      "type": "integer",
-                      "example": 0,
-                      "default": 0
-                    },
-                    "shopify": {
-                      "type": "integer",
-                      "example": 0,
-                      "default": 0
-                    },
-                    "type": {
-                      "type": "string",
-                      "example": "intro"
-                    }
-                  }
                 }
               }
             }
@@ -128,19 +67,6 @@
                     "value": {
                       "result": "error",
                       "message": "Please specify a valid auth_token."
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Please specify a valid auth_token."
                     }
                   }
                 }

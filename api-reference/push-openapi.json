@@ -148,23 +148,6 @@
                       "objectId": "5r777x9f8f01d"
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "success"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Request received. Push sending shortly."
-                    },
-                    "objectId": {
-                      "type": "string",
-                      "example": "5r777x9f8f01d"
-                    }
-                  }
                 }
               }
             }
@@ -178,19 +161,6 @@
                     "value": {
                       "result": "error",
                       "message": "Error #136."
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Error #136."
                     }
                   }
                 }
@@ -207,24 +177,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }
@@ -341,119 +293,6 @@
                       }
                     ]
                   }
-                },
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "integer",
-                        "example": 819,
-                        "default": 0
-                      },
-                      "uid": {
-                        "type": "string",
-                        "example": "76cedd11b19e"
-                      },
-                      "idSite": {
-                        "type": "integer",
-                        "example": 179,
-                        "default": 0
-                      },
-                      "name": {
-                        "type": "string",
-                        "example": "Sample Triggered Notification # 1:  Abandoned Cart"
-                      },
-                      "title": {
-                        "type": "string",
-                        "example": ""
-                      },
-                      "body": {
-                        "type": "string",
-                        "example": ""
-                      },
-                      "link": {
-                        "type": "string",
-                        "example": ""
-                      },
-                      "customIcon": {
-                        "type": "string",
-                        "example": "https://s3.amazonaws.com/siteicons.aimtell.com/icon_40_1443032714..jpg"
-                      },
-                      "delay": {
-                        "type": "integer",
-                        "example": 0,
-                        "default": 0
-                      },
-                      "eventCategory": {
-                        "type": "string",
-                        "example": "cart"
-                      },
-                      "eventAction": {
-                        "type": "string",
-                        "example": "abandoned"
-                      },
-                      "eventLabel": {
-                        "type": "string",
-                        "example": ""
-                      },
-                      "conversion_trigger": {},
-                      "collapse_key": {},
-                      "createdAt": {
-                        "type": "string",
-                        "example": "2016-10-24 23:26:06"
-                      },
-                      "updatedAt": {
-                        "type": "string",
-                        "example": "2017-02-18 01:11:34"
-                      },
-                      "status": {
-                        "type": "integer",
-                        "example": 1,
-                        "default": 0
-                      },
-                      "sentcount": {},
-                      "clickcount": {},
-                      "conversions": {},
-                      "bounced": {},
-                      "draft": {
-                        "type": "boolean",
-                        "example": true,
-                        "default": true
-                      },
-                      "campaign_results": {
-                        "type": "object",
-                        "properties": {
-                          "sent": {
-                            "type": "integer",
-                            "example": 0,
-                            "default": 0
-                          },
-                          "delivered": {
-                            "type": "integer",
-                            "example": 0,
-                            "default": 0
-                          },
-                          "bounced": {
-                            "type": "integer",
-                            "example": 0,
-                            "default": 0
-                          },
-                          "clicked": {
-                            "type": "integer",
-                            "example": 0,
-                            "default": 0
-                          },
-                          "conversions": {
-                            "type": "integer",
-                            "example": 0,
-                            "default": 0
-                          }
-                        }
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -468,24 +307,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }
@@ -550,108 +371,6 @@
                       }
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "integer",
-                      "example": 819,
-                      "default": 0
-                    },
-                    "uid": {
-                      "type": "string",
-                      "example": "76cedd11b19e"
-                    },
-                    "idSite": {
-                      "type": "integer",
-                      "example": 179,
-                      "default": 0
-                    },
-                    "name": {
-                      "type": "string",
-                      "example": "Sample Triggered Notification # 1:  Abandoned Cart"
-                    },
-                    "title": {
-                      "type": "string",
-                      "example": ""
-                    },
-                    "body": {
-                      "type": "string",
-                      "example": ""
-                    },
-                    "link": {
-                      "type": "string",
-                      "example": ""
-                    },
-                    "customIcon": {
-                      "type": "string",
-                      "example": "https://s3.amazonaws.com/siteicons.aimtell.com/icon_40_1443032714..jpg"
-                    },
-                    "delay": {
-                      "type": "integer",
-                      "example": 0,
-                      "default": 0
-                    },
-                    "eventCategory": {
-                      "type": "string",
-                      "example": "cart"
-                    },
-                    "eventAction": {
-                      "type": "string",
-                      "example": "abandoned"
-                    },
-                    "eventLabel": {
-                      "type": "string",
-                      "example": ""
-                    },
-                    "conversion_trigger": {},
-                    "collapse_key": {},
-                    "createdAt": {
-                      "type": "string",
-                      "example": "2016-10-24 23:26:06"
-                    },
-                    "updatedAt": {
-                      "type": "string",
-                      "example": "2017-02-18 01:11:34"
-                    },
-                    "status": {
-                      "type": "integer",
-                      "example": 1,
-                      "default": 0
-                    },
-                    "bounced": {},
-                    "campaign_results": {
-                      "type": "object",
-                      "properties": {
-                        "sent": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "delivered": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "bounced": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "clicked": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "conversions": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        }
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -666,24 +385,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }
@@ -821,19 +522,6 @@
                       "campaignId": "329"
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "success"
-                    },
-                    "campaignId": {
-                      "type": "string",
-                      "example": "329"
-                    }
-                  }
                 }
               }
             }
@@ -849,19 +537,6 @@
                       "message": "Error #136."
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Error #136."
-                    }
-                  }
                 }
               }
             }
@@ -875,19 +550,6 @@
                     "value": {
                       "result": "error",
                       "message": "Please specify a valid auth_token."
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Please specify a valid auth_token."
                     }
                   }
                 }
@@ -928,23 +590,6 @@
                       "campaignId": "80"
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "success"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "campaign deleted"
-                    },
-                    "campaignId": {
-                      "type": "string",
-                      "example": "80"
-                    }
-                  }
                 }
               }
             }
@@ -958,19 +603,6 @@
                     "value": {
                       "result": "error",
                       "message": "Please specify a valid auth_token."
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Please specify a valid auth_token."
                     }
                   }
                 }
@@ -1065,161 +697,6 @@
                       }
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "sent": {
-                      "type": "object",
-                      "properties": {
-                        "03/05/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/06/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/07/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/08/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/09/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        }
-                      }
-                    },
-                    "delivered": {
-                      "type": "object",
-                      "properties": {
-                        "03/05/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/06/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/07/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/08/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/09/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        }
-                      }
-                    },
-                    "bounced": {
-                      "type": "object",
-                      "properties": {
-                        "03/05/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/06/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/07/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/08/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/09/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        }
-                      }
-                    },
-                    "clicked": {
-                      "type": "object",
-                      "properties": {
-                        "03/05/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/06/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/07/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/08/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/09/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        }
-                      }
-                    },
-                    "conversions": {
-                      "type": "object",
-                      "properties": {
-                        "03/05/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/06/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/07/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/08/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/09/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        }
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -1234,24 +711,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }
@@ -1305,20 +764,6 @@
                       "campaignId": 1991
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "success"
-                    },
-                    "campaignId": {
-                      "type": "integer",
-                      "example": 1991,
-                      "default": 0
-                    }
-                  }
                 }
               }
             }
@@ -1332,19 +777,6 @@
                     "value": {
                       "result": "error",
                       "message": "Error #139."
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Error #139."
                     }
                   }
                 }
@@ -1463,22 +895,6 @@
                         "campaignId": 480830
                       }
                     ]
-                  }
-                },
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "result": {
-                        "type": "string",
-                        "example": "error"
-                      },
-                      "message": {
-                        "type": "string",
-                        "example": "Insufficient permissions."
-                      }
-                    }
                   }
                 }
               }
@@ -1599,22 +1015,6 @@
                       }
                     ]
                   }
-                },
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "result": {
-                        "type": "string",
-                        "example": "error"
-                      },
-                      "message": {
-                        "type": "string",
-                        "example": "Insufficient permissions."
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -1681,22 +1081,6 @@
                         "campaignId": 480830
                       }
                     ]
-                  }
-                },
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "result": {
-                        "type": "string",
-                        "example": "error"
-                      },
-                      "message": {
-                        "type": "string",
-                        "example": "Insufficient permissions."
-                      }
-                    }
                   }
                 }
               }
@@ -1798,24 +1182,6 @@
                       "error_code": 71831
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
-                    }
-                  }
                 }
               }
             }
@@ -1901,24 +1267,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }
@@ -2058,19 +1406,6 @@
                       "campaignId": "128"
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "success"
-                    },
-                    "campaignId": {
-                      "type": "string",
-                      "example": "128"
-                    }
-                  }
                 }
               }
             }
@@ -2086,19 +1421,6 @@
                       "message": "Error #136."
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Error #136."
-                    }
-                  }
                 }
               }
             }
@@ -2112,19 +1434,6 @@
                     "value": {
                       "result": "error",
                       "message": "Please specify a valid auth_token."
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Please specify a valid auth_token."
                     }
                   }
                 }
@@ -2165,23 +1474,6 @@
                       "campaignId": "1991"
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "success"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "rss campaign deleted"
-                    },
-                    "campaignId": {
-                      "type": "string",
-                      "example": "1991"
-                    }
-                  }
                 }
               }
             }
@@ -2195,19 +1487,6 @@
                     "value": {
                       "result": "error",
                       "message": "Please specify a valid auth_token."
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Please specify a valid auth_token."
                     }
                   }
                 }
@@ -2302,161 +1581,6 @@
                       }
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "sent": {
-                      "type": "object",
-                      "properties": {
-                        "03/05/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/06/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/07/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/08/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/09/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        }
-                      }
-                    },
-                    "delivered": {
-                      "type": "object",
-                      "properties": {
-                        "03/05/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/06/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/07/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/08/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/09/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        }
-                      }
-                    },
-                    "bounced": {
-                      "type": "object",
-                      "properties": {
-                        "03/05/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/06/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/07/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/08/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/09/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        }
-                      }
-                    },
-                    "clicked": {
-                      "type": "object",
-                      "properties": {
-                        "03/05/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/06/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/07/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/08/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/09/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        }
-                      }
-                    },
-                    "conversions": {
-                      "type": "object",
-                      "properties": {
-                        "03/05/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/06/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/07/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/08/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/09/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        }
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -2471,24 +1595,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }
@@ -2542,20 +1648,6 @@
                       "campaignId": 128
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "success"
-                    },
-                    "campaignId": {
-                      "type": "integer",
-                      "example": 128,
-                      "default": 0
-                    }
-                  }
                 }
               }
             }
@@ -2569,19 +1661,6 @@
                     "value": {
                       "result": "error",
                       "message": "Error #139."
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Error #139."
                     }
                   }
                 }
@@ -2684,24 +1763,6 @@
                       "error_code": 71831
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
-                    }
-                  }
                 }
               }
             }
@@ -2788,136 +1849,6 @@
                       }
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "integer",
-                      "example": 259,
-                      "default": 0
-                    },
-                    "uid": {
-                      "type": "string",
-                      "example": "76cedd11b19e"
-                    },
-                    "idSite": {
-                      "type": "integer",
-                      "example": 179,
-                      "default": 0
-                    },
-                    "name": {
-                      "type": "string",
-                      "example": "Sample Campaign #1"
-                    },
-                    "title": {
-                      "type": "string",
-                      "example": "Welcome to Aimtell!"
-                    },
-                    "body": {
-                      "type": "string",
-                      "example": "Got questions? Check out our knowledge base."
-                    },
-                    "link": {
-                      "type": "string",
-                      "example": "https://kb.aimtell.com"
-                    },
-                    "customIcon": {},
-                    "customImage": {},
-                    "segments": {
-                      "type": "string",
-                      "example": "245"
-                    },
-                    "conversion_trigger": {},
-                    "push_ttl": {
-                      "type": "integer",
-                      "example": 0,
-                      "default": 0
-                    },
-                    "auto_hide": {},
-                    "collapse_key": {},
-                    "schedule_date": {
-                      "type": "string",
-                      "example": "2024-12-11 12:12:00"
-                    },
-                    "ab_version": {},
-                    "ab_linked_campaign": {},
-                    "push_src": {},
-                    "push_src_values": {},
-                    "tz_delivery": {
-                      "type": "integer",
-                      "example": 0,
-                      "default": 0
-                    },
-                    "sent_date": {},
-                    "createdAt": {
-                      "type": "string",
-                      "example": "2015-12-28 17:54:42"
-                    },
-                    "updatedAt": {
-                      "type": "string",
-                      "example": "2015-12-28 17:54:42"
-                    },
-                    "automation": {},
-                    "automation_end": {},
-                    "actions": {},
-                    "status": {
-                      "type": "integer",
-                      "example": 4,
-                      "default": 0
-                    },
-                    "shared_id": {},
-                    "clicked_a01": {},
-                    "clicked_a02": {},
-                    "schedule_pretty_time": {
-                      "type": "string",
-                      "example": "06:55 AM"
-                    },
-                    "schedule_pretty_date": {
-                      "type": "string",
-                      "example": "12/28/2015"
-                    },
-                    "campaign_results": {
-                      "type": "object",
-                      "properties": {
-                        "sent": {
-                          "type": "integer",
-                          "example": 27,
-                          "default": 0
-                        },
-                        "delivered": {
-                          "type": "integer",
-                          "example": 27,
-                          "default": 0
-                        },
-                        "bounced": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "clicked": {
-                          "type": "integer",
-                          "example": 2,
-                          "default": 0
-                        },
-                        "clicked_a01": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "clicked_a02": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "conversions": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        }
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -2932,24 +1863,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }
@@ -3175,19 +2088,6 @@
                       "campaignId": "133321"
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "success"
-                    },
-                    "campaignId": {
-                      "type": "string",
-                      "example": "133321"
-                    }
-                  }
                 }
               }
             }
@@ -3203,19 +2103,6 @@
                       "message": "Error #136."
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Error #136."
-                    }
-                  }
                 }
               }
             }
@@ -3229,19 +2116,6 @@
                     "value": {
                       "result": "error",
                       "message": "Please specify a valid auth_token."
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Please specify a valid auth_token."
                     }
                   }
                 }
@@ -3282,23 +2156,6 @@
                       "campaignId": "80"
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "success"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "campaign deleted"
-                    },
-                    "campaignId": {
-                      "type": "string",
-                      "example": "80"
-                    }
-                  }
                 }
               }
             }
@@ -3312,19 +2169,6 @@
                     "value": {
                       "result": "error",
                       "message": "Please specify a valid auth_token."
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Please specify a valid auth_token."
                     }
                   }
                 }
@@ -3384,22 +2228,6 @@
                       }
                     ]
                   }
-                },
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "subscriber_uid": {
-                        "type": "string",
-                        "example": "63779e18-6c2c-4dd0-da76-ace61926fc53"
-                      },
-                      "created_at": {
-                        "type": "string",
-                        "example": "2017-02-16 18:13:54"
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -3414,24 +2242,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }
@@ -3526,161 +2336,6 @@
                       }
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "sent": {
-                      "type": "object",
-                      "properties": {
-                        "03/05/2017": {
-                          "type": "integer",
-                          "example": 9,
-                          "default": 0
-                        },
-                        "03/06/2017": {
-                          "type": "integer",
-                          "example": 8,
-                          "default": 0
-                        },
-                        "03/07/2017": {
-                          "type": "integer",
-                          "example": 3,
-                          "default": 0
-                        },
-                        "03/08/2017": {
-                          "type": "integer",
-                          "example": 4,
-                          "default": 0
-                        },
-                        "03/09/2017": {
-                          "type": "integer",
-                          "example": 10,
-                          "default": 0
-                        }
-                      }
-                    },
-                    "delivered": {
-                      "type": "object",
-                      "properties": {
-                        "03/05/2017": {
-                          "type": "integer",
-                          "example": 9,
-                          "default": 0
-                        },
-                        "03/06/2017": {
-                          "type": "integer",
-                          "example": 8,
-                          "default": 0
-                        },
-                        "03/07/2017": {
-                          "type": "integer",
-                          "example": 3,
-                          "default": 0
-                        },
-                        "03/08/2017": {
-                          "type": "integer",
-                          "example": 4,
-                          "default": 0
-                        },
-                        "03/09/2017": {
-                          "type": "integer",
-                          "example": 10,
-                          "default": 0
-                        }
-                      }
-                    },
-                    "bounced": {
-                      "type": "object",
-                      "properties": {
-                        "03/05/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/06/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/07/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/08/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/09/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        }
-                      }
-                    },
-                    "clicked": {
-                      "type": "object",
-                      "properties": {
-                        "03/05/2017": {
-                          "type": "integer",
-                          "example": 6,
-                          "default": 0
-                        },
-                        "03/06/2017": {
-                          "type": "integer",
-                          "example": 8,
-                          "default": 0
-                        },
-                        "03/07/2017": {
-                          "type": "integer",
-                          "example": 2,
-                          "default": 0
-                        },
-                        "03/08/2017": {
-                          "type": "integer",
-                          "example": 4,
-                          "default": 0
-                        },
-                        "03/09/2017": {
-                          "type": "integer",
-                          "example": 5,
-                          "default": 0
-                        }
-                      }
-                    },
-                    "conversions": {
-                      "type": "object",
-                      "properties": {
-                        "03/05/2017": {
-                          "type": "integer",
-                          "example": 2,
-                          "default": 0
-                        },
-                        "03/06/2017": {
-                          "type": "integer",
-                          "example": 8,
-                          "default": 0
-                        },
-                        "03/07/2017": {
-                          "type": "integer",
-                          "example": 2,
-                          "default": 0
-                        },
-                        "03/08/2017": {
-                          "type": "integer",
-                          "example": 3,
-                          "default": 0
-                        },
-                        "03/09/2017": {
-                          "type": "integer",
-                          "example": 5,
-                          "default": 0
-                        }
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -3695,24 +2350,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }
@@ -3868,20 +2505,6 @@
                       "campaignId": 72129
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "success"
-                    },
-                    "campaignId": {
-                      "type": "integer",
-                      "example": 72129,
-                      "default": 0
-                    }
-                  }
                 }
               }
             }
@@ -3895,19 +2518,6 @@
                     "value": {
                       "result": "error",
                       "message": "Error #139."
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Error #139."
                     }
                   }
                 }
@@ -4032,22 +2642,6 @@
                         "campaignId": 480830
                       }
                     ]
-                  }
-                },
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "result": {
-                        "type": "string",
-                        "example": "error"
-                      },
-                      "message": {
-                        "type": "string",
-                        "example": "Insufficient permissions."
-                      }
-                    }
                   }
                 }
               }
@@ -4193,22 +2787,6 @@
                       }
                     ]
                   }
-                },
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "result": {
-                        "type": "string",
-                        "example": "error"
-                      },
-                      "message": {
-                        "type": "string",
-                        "example": "Insufficient permissions."
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -4275,22 +2853,6 @@
                         "campaignId": 480830
                       }
                     ]
-                  }
-                },
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "result": {
-                        "type": "string",
-                        "example": "error"
-                      },
-                      "message": {
-                        "type": "string",
-                        "example": "Insufficient permissions."
-                      }
-                    }
                   }
                 }
               }
@@ -4363,142 +2925,6 @@
                       }
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "integer",
-                      "example": 1234,
-                      "default": 0
-                    },
-                    "title": {
-                      "type": "string",
-                      "example": "Sample Welcome Campaign"
-                    },
-                    "body": {
-                      "type": "string",
-                      "example": "Thanks for joining us!"
-                    },
-                    "link": {
-                      "type": "string",
-                      "example": "{website_url}"
-                    },
-                    "customImage": {
-                      "type": "string",
-                      "example": ""
-                    },
-                    "customIcon": {
-                      "type": "string",
-                      "example": "https://cdn.aimtell.io/user/uploads/12345-1588183932.png"
-                    },
-                    "idSite": {
-                      "type": "integer",
-                      "example": 20599,
-                      "default": 0
-                    },
-                    "status": {
-                      "type": "integer",
-                      "example": 1,
-                      "default": 0
-                    },
-                    "conversion_trigger": {
-                      "type": "object",
-                      "properties": {
-                        "eventCategory": {
-                          "type": "string",
-                          "example": "Page"
-                        },
-                        "eventAction": {
-                          "type": "string",
-                          "example": "Visited"
-                        },
-                        "eventLabel": {
-                          "type": "string",
-                          "example": ""
-                        }
-                      }
-                    },
-                    "actions": {
-                      "type": "object",
-                      "properties": {
-                        "a01": {
-                          "type": "object",
-                          "properties": {
-                            "title": {
-                              "type": "string",
-                              "example": "Get the best deals!"
-                            },
-                            "link": {
-                              "type": "string",
-                              "example": "{website_url}"
-                            }
-                          }
-                        },
-                        "a02": {
-                          "type": "object",
-                          "properties": {
-                            "title": {
-                              "type": "string",
-                              "example": "Check out our blog!"
-                            },
-                            "link": {
-                              "type": "string",
-                              "example": "{website_url}/blog"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "createdAt": {
-                      "type": "string",
-                      "example": "2020-04-29 18:12:57"
-                    },
-                    "updatedAt": {
-                      "type": "string",
-                      "example": "2020-12-18 16:15:40"
-                    },
-                    "campaign_results": {
-                      "type": "object",
-                      "properties": {
-                        "sent": {
-                          "type": "integer",
-                          "example": 13,
-                          "default": 0
-                        },
-                        "delivered": {
-                          "type": "integer",
-                          "example": 13,
-                          "default": 0
-                        },
-                        "bounced": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "clicked": {
-                          "type": "integer",
-                          "example": 5,
-                          "default": 0
-                        },
-                        "clicked_a01": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "clicked_a02": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "conversions": {
-                          "type": "integer",
-                          "example": 1,
-                          "default": 0
-                        }
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -4513,24 +2939,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }
@@ -4625,161 +3033,6 @@
                       }
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "sent": {
-                      "type": "object",
-                      "properties": {
-                        "03/05/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/06/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/07/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/08/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/09/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        }
-                      }
-                    },
-                    "delivered": {
-                      "type": "object",
-                      "properties": {
-                        "03/05/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/06/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/07/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/08/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/09/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        }
-                      }
-                    },
-                    "bounced": {
-                      "type": "object",
-                      "properties": {
-                        "03/05/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/06/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/07/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/08/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/09/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        }
-                      }
-                    },
-                    "clicked": {
-                      "type": "object",
-                      "properties": {
-                        "03/05/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/06/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/07/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/08/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/09/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        }
-                      }
-                    },
-                    "conversions": {
-                      "type": "object",
-                      "properties": {
-                        "03/05/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/06/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/07/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/08/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/09/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        }
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -4794,24 +3047,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }
@@ -4940,19 +3175,6 @@
                       "message": "Updated welcome message succesfully."
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "success"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Updated welcome message succesfully."
-                    }
-                  }
                 }
               }
             }
@@ -4966,19 +3188,6 @@
                     "value": {
                       "result": "error",
                       "message": "Error #139."
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Error #139."
                     }
                   }
                 }
@@ -5072,76 +3281,6 @@
                       }
                     ]
                   }
-                },
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "integer",
-                        "example": 33677790,
-                        "default": 0
-                      },
-                      "objectId": {
-                        "type": "string",
-                        "example": "5baa724fd38f2"
-                      },
-                      "owner_uid": {
-                        "type": "string",
-                        "example": "76cedd11b19e"
-                      },
-                      "campaignId": {},
-                      "title": {
-                        "type": "string",
-                        "example": "Hey there"
-                      },
-                      "body": {
-                        "type": "string",
-                        "example": "Nice push"
-                      },
-                      "link": {
-                        "type": "string",
-                        "example": "google.com"
-                      },
-                      "idSite": {
-                        "type": "integer",
-                        "example": 2459,
-                        "default": 0
-                      },
-                      "customIcon": {
-                        "type": "string",
-                        "example": "https://s3.amazonaws.com/siteicons.aimtell.com/icon_2459_1532715035.jpg"
-                      },
-                      "customImage": {
-                        "type": "string",
-                        "example": ""
-                      },
-                      "segmentId": {},
-                      "alias": {},
-                      "uids": {
-                        "type": "string",
-                        "example": "03a131fb-ca3e-0147-d846-c986c8d1bdb8"
-                      },
-                      "processed": {
-                        "type": "integer",
-                        "example": 1,
-                        "default": 0
-                      },
-                      "response": {
-                        "type": "string",
-                        "example": "{\"result\":\"success\",\"count\":1,\"bounced\":0}"
-                      },
-                      "createdAt": {
-                        "type": "string",
-                        "example": "2018-09-25 17:37:19"
-                      },
-                      "updatedAt": {
-                        "type": "string",
-                        "example": "2018-09-25 17:37:21"
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -5156,24 +3295,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }
@@ -5244,24 +3365,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }
@@ -5357,161 +3460,6 @@
                       }
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "sent": {
-                      "type": "object",
-                      "properties": {
-                        "03/05/2017": {
-                          "type": "integer",
-                          "example": 9,
-                          "default": 0
-                        },
-                        "03/06/2017": {
-                          "type": "integer",
-                          "example": 8,
-                          "default": 0
-                        },
-                        "03/07/2017": {
-                          "type": "integer",
-                          "example": 3,
-                          "default": 0
-                        },
-                        "03/08/2017": {
-                          "type": "integer",
-                          "example": 4,
-                          "default": 0
-                        },
-                        "03/09/2017": {
-                          "type": "integer",
-                          "example": 10,
-                          "default": 0
-                        }
-                      }
-                    },
-                    "delivered": {
-                      "type": "object",
-                      "properties": {
-                        "03/05/2017": {
-                          "type": "integer",
-                          "example": 9,
-                          "default": 0
-                        },
-                        "03/06/2017": {
-                          "type": "integer",
-                          "example": 8,
-                          "default": 0
-                        },
-                        "03/07/2017": {
-                          "type": "integer",
-                          "example": 3,
-                          "default": 0
-                        },
-                        "03/08/2017": {
-                          "type": "integer",
-                          "example": 4,
-                          "default": 0
-                        },
-                        "03/09/2017": {
-                          "type": "integer",
-                          "example": 10,
-                          "default": 0
-                        }
-                      }
-                    },
-                    "bounced": {
-                      "type": "object",
-                      "properties": {
-                        "03/05/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/06/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/07/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/08/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        },
-                        "03/09/2017": {
-                          "type": "integer",
-                          "example": 0,
-                          "default": 0
-                        }
-                      }
-                    },
-                    "clicked": {
-                      "type": "object",
-                      "properties": {
-                        "03/05/2017": {
-                          "type": "integer",
-                          "example": 6,
-                          "default": 0
-                        },
-                        "03/06/2017": {
-                          "type": "integer",
-                          "example": 8,
-                          "default": 0
-                        },
-                        "03/07/2017": {
-                          "type": "integer",
-                          "example": 2,
-                          "default": 0
-                        },
-                        "03/08/2017": {
-                          "type": "integer",
-                          "example": 4,
-                          "default": 0
-                        },
-                        "03/09/2017": {
-                          "type": "integer",
-                          "example": 5,
-                          "default": 0
-                        }
-                      }
-                    },
-                    "conversions": {
-                      "type": "object",
-                      "properties": {
-                        "03/05/2017": {
-                          "type": "integer",
-                          "example": 2,
-                          "default": 0
-                        },
-                        "03/06/2017": {
-                          "type": "integer",
-                          "example": 8,
-                          "default": 0
-                        },
-                        "03/07/2017": {
-                          "type": "integer",
-                          "example": 2,
-                          "default": 0
-                        },
-                        "03/08/2017": {
-                          "type": "integer",
-                          "example": 3,
-                          "default": 0
-                        },
-                        "03/09/2017": {
-                          "type": "integer",
-                          "example": 5,
-                          "default": 0
-                        }
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -5526,24 +3474,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }

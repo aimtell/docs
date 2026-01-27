@@ -81,49 +81,6 @@
                       }
                     ]
                   }
-                },
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "idsegment": {
-                        "type": "integer",
-                        "example": 245,
-                        "default": 0
-                      },
-                      "owner": {
-                        "type": "string",
-                        "example": "76cedd11b19e"
-                      },
-                      "name": {
-                        "type": "string",
-                        "example": "Sample Segment #1 - Lives In California"
-                      },
-                      "definition": {
-                        "type": "string",
-                        "example": "region==California"
-                      },
-                      "idSite": {
-                        "type": "integer",
-                        "example": 179,
-                        "default": 0
-                      },
-                      "createdAt": {
-                        "type": "string",
-                        "example": "2015-12-28 17:54:42"
-                      },
-                      "updatedAt": {
-                        "type": "string",
-                        "example": "2015-12-28 17:54:42"
-                      },
-                      "deleted": {
-                        "type": "integer",
-                        "example": 0,
-                        "default": 0
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -138,24 +95,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }
@@ -203,46 +142,6 @@
                       "deleted": 0
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "idsegment": {
-                      "type": "integer",
-                      "example": 245,
-                      "default": 0
-                    },
-                    "owner": {
-                      "type": "string",
-                      "example": "76cedd11b19e"
-                    },
-                    "name": {
-                      "type": "string",
-                      "example": "Sample Segment #1 - Lives In California"
-                    },
-                    "definition": {
-                      "type": "string",
-                      "example": "region==California"
-                    },
-                    "idSite": {
-                      "type": "integer",
-                      "example": 179,
-                      "default": 0
-                    },
-                    "createdAt": {
-                      "type": "string",
-                      "example": "2015-12-28 17:54:42"
-                    },
-                    "updatedAt": {
-                      "type": "string",
-                      "example": "2015-12-28 17:54:42"
-                    },
-                    "deleted": {
-                      "type": "integer",
-                      "example": 0,
-                      "default": 0
-                    }
-                  }
                 }
               }
             }
@@ -257,24 +156,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }
@@ -334,23 +215,6 @@
                       "message": "Successfully updated segment"
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "success"
-                    },
-                    "idSegment": {
-                      "type": "string",
-                      "example": "24"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Successfully updated segment"
-                    }
-                  }
                 }
               }
             }
@@ -366,19 +230,6 @@
                       "message": "Error #136."
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Error #136."
-                    }
-                  }
                 }
               }
             }
@@ -392,19 +243,6 @@
                     "value": {
                       "result": "error",
                       "message": "Please specify a valid auth_token."
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Please specify a valid auth_token."
                     }
                   }
                 }
@@ -445,23 +283,6 @@
                       "message": "Successfully removed segment"
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "success"
-                    },
-                    "idSegment": {
-                      "type": "string",
-                      "example": "5"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Successfully removed segment"
-                    }
-                  }
                 }
               }
             }
@@ -475,19 +296,6 @@
                     "value": {
                       "result": "error",
                       "message": "Please specify a valid auth_token."
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Please specify a valid auth_token."
                     }
                   }
                 }
@@ -557,28 +365,6 @@
                       }
                     ]
                   }
-                },
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "idsegment": {
-                        "type": "integer",
-                        "example": 999220,
-                        "default": 0
-                      },
-                      "idSite": {
-                        "type": "integer",
-                        "example": 90001,
-                        "default": 0
-                      },
-                      "shared_id": {
-                        "type": "string",
-                        "example": "5ef57e0e054fc1d22b1d99ab"
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -591,10 +377,6 @@
                   "Result": {
                     "value": {}
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {}
                 }
               }
             }
@@ -652,24 +434,6 @@
                       "id": 88
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "success"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Successfully created"
-                    },
-                    "id": {
-                      "type": "integer",
-                      "example": 88,
-                      "default": 0
-                    }
-                  }
                 }
               }
             }
@@ -683,19 +447,6 @@
                     "value": {
                       "result": "error",
                       "message": "Error #139."
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Error #139."
                     }
                   }
                 }
@@ -765,51 +516,6 @@
                       "12/14/2019": 30
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "12/07/2019": {
-                      "type": "integer",
-                      "example": 29,
-                      "default": 0
-                    },
-                    "12/08/2019": {
-                      "type": "integer",
-                      "example": 29,
-                      "default": 0
-                    },
-                    "12/09/2019": {
-                      "type": "integer",
-                      "example": 28,
-                      "default": 0
-                    },
-                    "12/10/2019": {
-                      "type": "integer",
-                      "example": 28,
-                      "default": 0
-                    },
-                    "12/11/2019": {
-                      "type": "integer",
-                      "example": 32,
-                      "default": 0
-                    },
-                    "12/12/2019": {
-                      "type": "integer",
-                      "example": 27,
-                      "default": 0
-                    },
-                    "12/13/2019": {
-                      "type": "integer",
-                      "example": 30,
-                      "default": 0
-                    },
-                    "12/14/2019": {
-                      "type": "integer",
-                      "example": 30,
-                      "default": 0
-                    }
-                  }
                 }
               }
             }
@@ -824,24 +530,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }
@@ -953,89 +641,6 @@
                       ]
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "count": {
-                      "type": "integer",
-                      "example": 2,
-                      "default": 0
-                    },
-                    "skip": {
-                      "type": "integer",
-                      "example": 0,
-                      "default": 0
-                    },
-                    "limit": {
-                      "type": "integer",
-                      "example": 25,
-                      "default": 0
-                    },
-                    "segmentId": {},
-                    "filter": {},
-                    "subscribers": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "subscriber_uid": {
-                            "type": "string",
-                            "example": "c9603591-ffe0-ea08-8067-83420e5b4f5c"
-                          },
-                          "subscriberId": {
-                            "type": "string",
-                            "example": "c9603591-ffe0-ea08-8067-82478e5b4f5c"
-                          },
-                          "deviceType": {
-                            "type": "string",
-                            "example": "desktop"
-                          },
-                          "browserName": {
-                            "type": "string",
-                            "example": "Chrome"
-                          },
-                          "operatingSystemCode": {
-                            "type": "string",
-                            "example": "Mac OS X"
-                          },
-                          "browserLang": {
-                            "type": "string",
-                            "example": "en-US"
-                          },
-                          "region": {
-                            "type": "string",
-                            "example": "Virginia"
-                          },
-                          "city": {
-                            "type": "string",
-                            "example": "Ashburn"
-                          },
-                          "ip": {
-                            "type": "string",
-                            "example": "54.174.82.151"
-                          },
-                          "country": {
-                            "type": "string",
-                            "example": "United States"
-                          },
-                          "postal": {
-                            "type": "string",
-                            "example": "20149"
-                          },
-                          "idSite": {
-                            "type": "integer",
-                            "example": 4240,
-                            "default": 0
-                          },
-                          "createdAt": {
-                            "type": "string",
-                            "example": "2017-06-30 20:02:49"
-                          }
-                        }
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -1050,24 +655,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }
@@ -1127,54 +714,6 @@
                       "custom_attributes": []
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "idSite": {
-                      "type": "string",
-                      "example": "300"
-                    },
-                    "subscriberId": {
-                      "type": "string",
-                      "example": "00388872-cd0b-4243-0333-642526c72f0f"
-                    },
-                    "browserLang": {
-                      "type": "string",
-                      "example": "ar"
-                    },
-                    "browserName": {
-                      "type": "string",
-                      "example": "Chrome"
-                    },
-                    "operatingSystemCode": {
-                      "type": "string",
-                      "example": "Windows"
-                    },
-                    "deviceType": {
-                      "type": "string",
-                      "example": "mobile"
-                    },
-                    "ip": {
-                      "type": "string",
-                      "example": "77.75.88.125"
-                    },
-                    "region": {
-                      "type": "string",
-                      "example": "Beyrouth"
-                    },
-                    "city": {
-                      "type": "string",
-                      "example": "Beirut"
-                    },
-                    "country": {
-                      "type": "string",
-                      "example": "Lebanon"
-                    },
-                    "custom_attributes": {
-                      "type": "array"
-                    }
-                  }
                 }
               }
             }
@@ -1189,24 +728,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }
@@ -1272,15 +793,6 @@
                       "result": "success"
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "success"
-                    }
-                  }
                 }
               }
             }
@@ -1296,19 +808,6 @@
                       "message": "Error #136."
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Error #136."
-                    }
-                  }
                 }
               }
             }
@@ -1322,19 +821,6 @@
                     "value": {
                       "result": "error",
                       "message": "Please specify a valid auth_token."
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Please specify a valid auth_token."
                     }
                   }
                 }

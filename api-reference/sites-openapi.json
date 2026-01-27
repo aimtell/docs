@@ -102,55 +102,6 @@
                       }
                     ]
                   }
-                },
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "integer",
-                        "example": 179,
-                        "default": 0
-                      },
-                      "uid": {
-                        "type": "string",
-                        "example": "76cedd11b19e"
-                      },
-                      "url": {
-                        "type": "string",
-                        "example": "https://demo.aimtell.com"
-                      },
-                      "name": {
-                        "type": "string",
-                        "example": "Demo Website"
-                      },
-                      "icon": {
-                        "type": "string",
-                        "example": "https://s3.amazonaws.com/siteicons.aimtell.com/icon_40_1443032714..jpg"
-                      },
-                      "promptId": {
-                        "type": "integer",
-                        "example": 0,
-                        "default": 0
-                      },
-                      "webPushID": {},
-                      "auto_prompt": {
-                        "type": "integer",
-                        "example": 1,
-                        "default": 0
-                      },
-                      "createdAt": {
-                        "type": "string",
-                        "example": "2015-12-28 17:54:42"
-                      },
-                      "active": {
-                        "type": "integer",
-                        "example": 1,
-                        "default": 0
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -165,24 +116,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }
@@ -235,24 +168,6 @@
                       "id": 79
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "success"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Added website https://fake.aimtell.com succesfully."
-                    },
-                    "id": {
-                      "type": "integer",
-                      "example": 79,
-                      "default": 0
-                    }
-                  }
                 }
               }
             }
@@ -266,19 +181,6 @@
                     "value": {
                       "result": "error",
                       "message": "Error #139."
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Error #139."
                     }
                   }
                 }
@@ -295,24 +197,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }
@@ -362,55 +246,6 @@
                       "active": 1
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "integer",
-                      "example": 2459,
-                      "default": 0
-                    },
-                    "uid": {
-                      "type": "string",
-                      "example": "76cedd11b19e"
-                    },
-                    "url": {
-                      "type": "string",
-                      "example": "https://example2459.aimtell.io"
-                    },
-                    "name": {
-                      "type": "string",
-                      "example": "Example Site"
-                    },
-                    "icon": {
-                      "type": "string",
-                      "example": "https://s3.amazonaws.com/siteicons.aimtell.com/icon_2459_1532715035.jpg"
-                    },
-                    "promptId": {
-                      "type": "integer",
-                      "example": 857,
-                      "default": 0
-                    },
-                    "webPushID": {
-                      "type": "string",
-                      "example": "web.3.aimtell.com"
-                    },
-                    "auto_prompt": {
-                      "type": "integer",
-                      "example": 1,
-                      "default": 0
-                    },
-                    "createdAt": {
-                      "type": "string",
-                      "example": "2017-01-31 18:32:52"
-                    },
-                    "active": {
-                      "type": "integer",
-                      "example": 1,
-                      "default": 0
-                    }
-                  }
                 }
               }
             }
@@ -425,24 +260,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }
@@ -506,23 +323,6 @@
                       "id": "1"
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "success"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Updated website succesfully."
-                    },
-                    "id": {
-                      "type": "string",
-                      "example": "1"
-                    }
-                  }
                 }
               }
             }
@@ -538,19 +338,6 @@
                       "message": "Error #136."
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Error #136."
-                    }
-                  }
                 }
               }
             }
@@ -564,19 +351,6 @@
                     "value": {
                       "result": "error",
                       "message": "Please specify a valid auth_token."
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Please specify a valid auth_token."
                     }
                   }
                 }
@@ -632,19 +406,6 @@
                       "message": "Please specify a valid auth_token."
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Please specify a valid auth_token."
-                    }
-                  }
                 }
               }
             }
@@ -695,35 +456,6 @@
                       }
                     ]
                   }
-                },
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "uid": {
-                        "type": "string",
-                        "example": "12abcd3456a7"
-                      },
-                      "first_name": {
-                        "type": "string",
-                        "example": "John"
-                      },
-                      "last_name": {
-                        "type": "string",
-                        "example": "Doe"
-                      },
-                      "username": {
-                        "type": "string",
-                        "example": "johndoe@website.com"
-                      },
-                      "owner": {
-                        "type": "boolean",
-                        "example": true,
-                        "default": true
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -738,24 +470,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }
@@ -811,24 +525,6 @@
                       "id": 12345
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "success"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Added user ab123c4d55ef succesfully."
-                    },
-                    "id": {
-                      "type": "integer",
-                      "example": 12345,
-                      "default": 0
-                    }
-                  }
                 }
               }
             }
@@ -846,25 +542,6 @@
                       "error_code": null
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "No user found."
-                    },
-                    "error_logged": {
-                      "type": "boolean",
-                      "example": true,
-                      "default": true
-                    },
-                    "error_code": {}
-                  }
                 }
               }
             }
@@ -879,24 +556,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }
@@ -951,19 +610,6 @@
                       "message": "Removed user ab123c4d55ef succesfully."
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "success"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Removed user ab123c4d55ef succesfully."
-                    }
-                  }
                 }
               }
             }
@@ -978,24 +624,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }
@@ -1039,28 +667,6 @@
                       "uid": "76cedd11b19e"
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "url": {
-                      "type": "string",
-                      "example": "demo.aimtell.com"
-                    },
-                    "value": {
-                      "type": "string",
-                      "example": "<!-- start aimtell tracking code --> <script type='text/javascript'>var _at = {};_at.domain = 'demo.aimtell.com';_at.owner = '76cedd11b19e';_at.idSite = '179';_at.attributes = {};  (function() {var u='//api.aimtell.com/prod/';var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'trackpush.min.js'; s.parentNode.insertBefore(g,s);})();</script><!-- end aimtell tracking code -->"
-                    },
-                    "idSite": {
-                      "type": "integer",
-                      "example": 179,
-                      "default": 0
-                    },
-                    "uid": {
-                      "type": "string",
-                      "example": "76cedd11b19e"
-                    }
-                  }
                 }
               }
             }
@@ -1075,24 +681,6 @@
                       "result": "error",
                       "message": "Invalid token.",
                       "error_code": 71831
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Invalid token."
-                    },
-                    "error_code": {
-                      "type": "integer",
-                      "example": 71831,
-                      "default": 0
                     }
                   }
                 }
@@ -1134,19 +722,6 @@
                       "message": "Updated site settings"
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "success"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Updated site settings"
-                    }
-                  }
                 }
               }
             }
@@ -1162,19 +737,6 @@
                       "message": "Error #136."
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Error #136."
-                    }
-                  }
                 }
               }
             }
@@ -1188,19 +750,6 @@
                     "value": {
                       "result": "error",
                       "message": "Please specify a valid auth_token."
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Please specify a valid auth_token."
                     }
                   }
                 }
@@ -1309,19 +858,6 @@
                       "message": "Updated site settings"
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "success"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Updated site settings"
-                    }
-                  }
                 }
               }
             }
@@ -1337,19 +873,6 @@
                       "message": "Error #136."
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Error #136."
-                    }
-                  }
                 }
               }
             }
@@ -1363,19 +886,6 @@
                     "value": {
                       "result": "error",
                       "message": "Please specify a valid auth_token."
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Please specify a valid auth_token."
                     }
                   }
                 }
@@ -1463,19 +973,6 @@
                       "message": "Error #136."
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Error #136."
-                    }
-                  }
                 }
               }
             }
@@ -1489,19 +986,6 @@
                     "value": {
                       "result": "error",
                       "message": "Please specify a valid auth_token."
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Please specify a valid auth_token."
                     }
                   }
                 }
@@ -1576,19 +1060,6 @@
                       "message": "Website Key added/updated successfully"
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "success"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Website Key added/updated successfully"
-                    }
-                  }
                 }
               }
             }
@@ -1604,19 +1075,6 @@
                       "message": "Error #136."
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Error #136."
-                    }
-                  }
                 }
               }
             }
@@ -1630,19 +1088,6 @@
                     "value": {
                       "result": "error",
                       "message": "Please specify a valid auth_token."
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Please specify a valid auth_token."
                     }
                   }
                 }
@@ -1724,19 +1169,6 @@
                       "message": "Error #136."
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Error #136."
-                    }
-                  }
                 }
               }
             }
@@ -1750,19 +1182,6 @@
                     "value": {
                       "result": "error",
                       "message": "Please specify a valid auth_token."
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Please specify a valid auth_token."
                     }
                   }
                 }
@@ -1822,11 +1241,6 @@
                   "Result": {
                     "value": true
                   }
-                },
-                "schema": {
-                  "type": "boolean",
-                  "example": true,
-                  "default": true
                 }
               }
             }
@@ -1842,19 +1256,6 @@
                       "message": "Error #136."
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Error #136."
-                    }
-                  }
                 }
               }
             }
@@ -1868,19 +1269,6 @@
                     "value": {
                       "result": "error",
                       "message": "Please specify a valid auth_token."
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Please specify a valid auth_token."
                     }
                   }
                 }
@@ -1935,11 +1323,6 @@
                   "Result": {
                     "value": true
                   }
-                },
-                "schema": {
-                  "type": "boolean",
-                  "example": true,
-                  "default": true
                 }
               }
             }
@@ -1955,19 +1338,6 @@
                       "message": "Error #136."
                     }
                   }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Error #136."
-                    }
-                  }
                 }
               }
             }
@@ -1981,19 +1351,6 @@
                     "value": {
                       "result": "error",
                       "message": "Please specify a valid auth_token."
-                    }
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "result": {
-                      "type": "string",
-                      "example": "error"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Please specify a valid auth_token."
                     }
                   }
                 }

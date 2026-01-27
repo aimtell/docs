@@ -28,7 +28,7 @@
     "/prod/report/dashboard/{id}": {
       "get": {
         "summary": "Analytics Over Time (Specific Site)",
-        "description": "Shows a report of the number of unsubscribes that occurred as a result of being able to deliver notifications over time.",
+        "description": "Shows a report of specific metrics over time.",
         "operationId": "api-new-subscribers-over-time-1",
         "parameters": [
           {
@@ -43,10 +43,28 @@
           {
             "name": "type",
             "in": "query",
-            "description": "See table below for options",
+            "description": "Type of analytics data to retrieve",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "newsubscribers",
+                "unsubscribes",
+                "notifications",
+                "notificationclicks",
+                "optin",
+                "inactive",
+                "revenue"
+              ],
+              "x-enum-descriptions": {
+                "newsubscribers": "New Subscribers",
+                "unsubscribes": "Unsubscribes (manual)",
+                "notifications": "Notifications Sent",
+                "notificationclicks": "Notifications Clicked",
+                "optin": "Optin Rate Percentage",
+                "inactive": "Unsubscribes (inactive)",
+                "revenue": "Monetization Revenue"
+              }
             }
           },
           {
@@ -229,16 +247,34 @@
     "/prod/report/dashboard": {
       "get": {
         "summary": "Analytics Over Time (All Sites)",
-        "description": "Shows a report of the number of unsubscribes that occurred as a result of being able to deliver notifications over time.",
+        "description": "Shows a report of specific metrics over time.",
         "operationId": "api-analytics-over-time-all-sites",
         "parameters": [
           {
             "name": "type",
             "in": "query",
-            "description": "See table below for options",
+            "description": "Type of analytics data to retrieve",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "newsubscribers",
+                "unsubscribes",
+                "notifications",
+                "notificationclicks",
+                "optin",
+                "inactive",
+                "revenue"
+              ],
+              "x-enum-descriptions": {
+                "newsubscribers": "New Subscribers",
+                "unsubscribes": "Unsubscribes (manual)",
+                "notifications": "Notifications Sent",
+                "notificationclicks": "Notifications Clicked",
+                "optin": "Optin Rate Percentage",
+                "inactive": "Unsubscribes (inactive)",
+                "revenue": "Monetization Revenue"
+              }
             }
           },
           {
