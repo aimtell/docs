@@ -38,6 +38,10 @@
           {
             "group": "REST API - Segmentation",
             "openapi": "/api-reference/segments-openapi.json"
+          },
+          {
+            "group": "REST API - Other",
+            "openapi": "/api-reference/misc-openapi.json"
           }
         ]
       }

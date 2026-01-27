@@ -4991,6 +4991,571 @@
           "Welcome Notifications"
         ]
       }
+    },
+    "/prod/api-campaigns/{id}": {
+      "get": {
+        "summary": "Get All API Push Campaigns",
+        "description": "Fetches All API Push Campaigns",
+        "operationId": "get-all-api-campaigns",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Site ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Skip",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": [
+                      {
+                        "id": 33677790,
+                        "objectId": "5baa724fd38f2",
+                        "owner_uid": "76cedd11b19e",
+                        "campaignId": null,
+                        "title": "Hey there",
+                        "body": "Nice push",
+                        "link": "google.com",
+                        "idSite": 2459,
+                        "customIcon": "https://s3.amazonaws.com/siteicons.aimtell.com/icon_2459_1532715035.jpg",
+                        "customImage": "",
+                        "segmentId": null,
+                        "alias": null,
+                        "uids": "03a131fb-ca3e-0147-d846-c986c8d1bdb8",
+                        "processed": 1,
+                        "response": "{\"result\":\"success\",\"count\":1,\"bounced\":0}",
+                        "createdAt": "2018-09-25 17:37:19",
+                        "updatedAt": "2018-09-25 17:37:21"
+                      },
+                      {
+                        "id": 33677791,
+                        "objectId": "5baa72502ea9d",
+                        "owner_uid": "76cedd11b19e",
+                        "campaignId": null,
+                        "title": "Wow",
+                        "body": "That's awesome man",
+                        "link": "google.com",
+                        "idSite": 2459,
+                        "customIcon": "https://s3.amazonaws.com/siteicons.aimtell.com/icon_2459_1532715035.jpg",
+                        "customImage": "",
+                        "segmentId": null,
+                        "alias": null,
+                        "uids": "03a131fb-ca3e-0147-d846-c986c8d1bdb8",
+                        "processed": 1,
+                        "response": "{\"result\":\"success\",\"count\":1,\"bounced\":0}",
+                        "createdAt": "2018-09-25 17:37:20",
+                        "updatedAt": "2018-09-25 17:37:21"
+                      }
+                    ]
+                  }
+                },
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 33677790,
+                        "default": 0
+                      },
+                      "objectId": {
+                        "type": "string",
+                        "example": "5baa724fd38f2"
+                      },
+                      "owner_uid": {
+                        "type": "string",
+                        "example": "76cedd11b19e"
+                      },
+                      "campaignId": {},
+                      "title": {
+                        "type": "string",
+                        "example": "Hey there"
+                      },
+                      "body": {
+                        "type": "string",
+                        "example": "Nice push"
+                      },
+                      "link": {
+                        "type": "string",
+                        "example": "google.com"
+                      },
+                      "idSite": {
+                        "type": "integer",
+                        "example": 2459,
+                        "default": 0
+                      },
+                      "customIcon": {
+                        "type": "string",
+                        "example": "https://s3.amazonaws.com/siteicons.aimtell.com/icon_2459_1532715035.jpg"
+                      },
+                      "customImage": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "segmentId": {},
+                      "alias": {},
+                      "uids": {
+                        "type": "string",
+                        "example": "03a131fb-ca3e-0147-d846-c986c8d1bdb8"
+                      },
+                      "processed": {
+                        "type": "integer",
+                        "example": 1,
+                        "default": 0
+                      },
+                      "response": {
+                        "type": "string",
+                        "example": "{\"result\":\"success\",\"count\":1,\"bounced\":0}"
+                      },
+                      "createdAt": {
+                        "type": "string",
+                        "example": "2018-09-25 17:37:19"
+                      },
+                      "updatedAt": {
+                        "type": "string",
+                        "example": "2018-09-25 17:37:21"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Invalid token.",
+                      "error_code": 71831
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid token."
+                    },
+                    "error_code": {
+                      "type": "integer",
+                      "example": 71831,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "API Campaigns"
+        ]
+      }
+    },
+    "/prod/api-campaign/{id}": {
+      "get": {
+        "summary": "Get API Campaign",
+        "description": "Fetches API Campaign",
+        "operationId": "get-api-campaign",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Campaign objectID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "id": 361207856,
+                      "objectId": "608ada95ee9eb",
+                      "owner_uid": "76cedd11b19e",
+                      "campaignId": null,
+                      "title": "test",
+                      "body": "notification",
+                      "link": "https://google.com",
+                      "idSite": 2459,
+                      "customIcon": null,
+                      "customImage": null,
+                      "segmentId": null,
+                      "alias": null,
+                      "uids": "ae796f72-3c9a-6bc0-37c0-a7ad802e7f94",
+                      "processed": 1,
+                      "response": "{'result':'success','count':1,'bounced':0}",
+                      "createdAt": "2021-04-29 16:11:02",
+                      "updatedAt": null
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Invalid token.",
+                      "error_code": 71831
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid token."
+                    },
+                    "error_code": {
+                      "type": "integer",
+                      "example": 71831,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "API Campaigns"
+        ]
+      }
+    },
+    "/prod/api-campaigns/{idSite}/results": {
+      "get": {
+        "summary": "Get API Campaign Results (By Day)",
+        "description": "Fetches API Campaign Results (by Day)",
+        "operationId": "api-get-api-campaign-results-by-day",
+        "parameters": [
+          {
+            "name": "idSite",
+            "in": "path",
+            "description": "Website ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "Date",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "Date",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "sent": {
+                        "03/05/2017": 9,
+                        "03/06/2017": 8,
+                        "03/07/2017": 3,
+                        "03/08/2017": 4,
+                        "03/09/2017": 10
+                      },
+                      "delivered": {
+                        "03/05/2017": 9,
+                        "03/06/2017": 8,
+                        "03/07/2017": 3,
+                        "03/08/2017": 4,
+                        "03/09/2017": 10
+                      },
+                      "bounced": {
+                        "03/05/2017": 0,
+                        "03/06/2017": 0,
+                        "03/07/2017": 0,
+                        "03/08/2017": 0,
+                        "03/09/2017": 0
+                      },
+                      "clicked": {
+                        "03/05/2017": 6,
+                        "03/06/2017": 8,
+                        "03/07/2017": 2,
+                        "03/08/2017": 4,
+                        "03/09/2017": 5
+                      },
+                      "conversions": {
+                        "03/05/2017": 2,
+                        "03/06/2017": 8,
+                        "03/07/2017": 2,
+                        "03/08/2017": 3,
+                        "03/09/2017": 5
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "sent": {
+                      "type": "object",
+                      "properties": {
+                        "03/05/2017": {
+                          "type": "integer",
+                          "example": 9,
+                          "default": 0
+                        },
+                        "03/06/2017": {
+                          "type": "integer",
+                          "example": 8,
+                          "default": 0
+                        },
+                        "03/07/2017": {
+                          "type": "integer",
+                          "example": 3,
+                          "default": 0
+                        },
+                        "03/08/2017": {
+                          "type": "integer",
+                          "example": 4,
+                          "default": 0
+                        },
+                        "03/09/2017": {
+                          "type": "integer",
+                          "example": 10,
+                          "default": 0
+                        }
+                      }
+                    },
+                    "delivered": {
+                      "type": "object",
+                      "properties": {
+                        "03/05/2017": {
+                          "type": "integer",
+                          "example": 9,
+                          "default": 0
+                        },
+                        "03/06/2017": {
+                          "type": "integer",
+                          "example": 8,
+                          "default": 0
+                        },
+                        "03/07/2017": {
+                          "type": "integer",
+                          "example": 3,
+                          "default": 0
+                        },
+                        "03/08/2017": {
+                          "type": "integer",
+                          "example": 4,
+                          "default": 0
+                        },
+                        "03/09/2017": {
+                          "type": "integer",
+                          "example": 10,
+                          "default": 0
+                        }
+                      }
+                    },
+                    "bounced": {
+                      "type": "object",
+                      "properties": {
+                        "03/05/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/06/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/07/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/08/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        },
+                        "03/09/2017": {
+                          "type": "integer",
+                          "example": 0,
+                          "default": 0
+                        }
+                      }
+                    },
+                    "clicked": {
+                      "type": "object",
+                      "properties": {
+                        "03/05/2017": {
+                          "type": "integer",
+                          "example": 6,
+                          "default": 0
+                        },
+                        "03/06/2017": {
+                          "type": "integer",
+                          "example": 8,
+                          "default": 0
+                        },
+                        "03/07/2017": {
+                          "type": "integer",
+                          "example": 2,
+                          "default": 0
+                        },
+                        "03/08/2017": {
+                          "type": "integer",
+                          "example": 4,
+                          "default": 0
+                        },
+                        "03/09/2017": {
+                          "type": "integer",
+                          "example": 5,
+                          "default": 0
+                        }
+                      }
+                    },
+                    "conversions": {
+                      "type": "object",
+                      "properties": {
+                        "03/05/2017": {
+                          "type": "integer",
+                          "example": 2,
+                          "default": 0
+                        },
+                        "03/06/2017": {
+                          "type": "integer",
+                          "example": 8,
+                          "default": 0
+                        },
+                        "03/07/2017": {
+                          "type": "integer",
+                          "example": 2,
+                          "default": 0
+                        },
+                        "03/08/2017": {
+                          "type": "integer",
+                          "example": 3,
+                          "default": 0
+                        },
+                        "03/09/2017": {
+                          "type": "integer",
+                          "example": 5,
+                          "default": 0
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "result": "error",
+                      "message": "Invalid token.",
+                      "error_code": 71831
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "example": "error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Invalid token."
+                    },
+                    "error_code": {
+                      "type": "integer",
+                      "example": 71831,
+                      "default": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "API Campaigns"
+        ]
+      }
     }
   },
   "tags": [
@@ -5013,6 +5578,10 @@
     {
       "name": "Manual Campaigns",
       "description": "Manually created push notification campaigns"
+    },
+    {
+      "name": "API Campaigns",
+      "description": "API-triggered push notification campaigns"
     }
   ]
 }
