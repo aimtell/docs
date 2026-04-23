@@ -319,8 +319,7 @@
             "name": "segment_id",
             "in": "path",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "integer"
             },
             "required": true
           }
@@ -546,7 +545,7 @@
     "/prod/subscribers/{id}": {
       "get": {
         "summary": "Get Subscribers",
-        "description": "Fetches all Subscribers for account",
+        "description": "Fetches subscribers for a given site. Optionally filter by segment or a specific subscriber.",
         "operationId": "get-subscribers",
         "parameters": [
           {
@@ -554,15 +553,14 @@
             "in": "path",
             "description": "Site ID",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "integer"
             },
             "required": true
           },
           {
             "name": "limit",
             "in": "query",
-            "description": "Limit",
+            "description": "Maximum number of results to return per page.",
             "schema": {
               "type": "string"
             }
@@ -570,7 +568,15 @@
           {
             "name": "skip",
             "in": "query",
-            "description": "Skip",
+            "description": "Number of results to skip for pagination (offset).",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Accepts `attributes`, `notifications`, or both as a comma-separated list (e.g. `attributes,notifications`).\n\nNote: the `read` field on notifications does not indicate impressions or delivery. It is used within the Notification Center (coming soon).",
             "schema": {
               "type": "string"
             }
@@ -580,114 +586,13 @@
             "in": "query",
             "description": "The ID of the segment you wish to filter by.",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "integer"
             }
           },
           {
-            "name": "include",
+            "name": "subscriberId",
             "in": "query",
-            "description": "optionally include attributes",
-            "schema": {
-              "type": "string",
-              "default": "attributes"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "200",
-            "content": {
-              "application/json": {
-                "examples": {
-                  "Result": {
-                    "value": {
-                      "count": 2,
-                      "skip": 0,
-                      "limit": 25,
-                      "segmentId": null,
-                      "filter": null,
-                      "subscribers": [
-                        {
-                          "subscriber_uid": "c9603591-ffe0-ea08-8067-83420e5b4f5c",
-                          "subscriberId": "c9603591-ffe0-ea08-8067-82478e5b4f5c",
-                          "deviceType": "desktop",
-                          "browserName": "Chrome",
-                          "operatingSystemCode": "Mac OS X",
-                          "browserLang": "en-US",
-                          "region": "Virginia",
-                          "city": "Ashburn",
-                          "ip": "54.174.82.151",
-                          "country": "United States",
-                          "postal": "20149",
-                          "idSite": 4240,
-                          "createdAt": "2017-06-30 20:02:49"
-                        },
-                        {
-                          "subscriber_uid": "d3428c3f-b78b-5563-042c-e3d49d98fa22",
-                          "subscriberId": "d3428c3f-b26b-5563-042c-e3d49d98fa46",
-                          "deviceType": "desktop",
-                          "browserName": "Firefox",
-                          "operatingSystemCode": "Mac OS X",
-                          "browserLang": "en-US",
-                          "region": "Virginia",
-                          "city": "Ashburn",
-                          "ip": "54.174.82.151",
-                          "country": "United States",
-                          "postal": "20149",
-                          "idSite": 4240,
-                          "createdAt": "2017-08-15 21:43:35"
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "401",
-            "content": {
-              "application/json": {
-                "examples": {
-                  "Result": {
-                    "value": {
-                      "result": "error",
-                      "message": "Invalid token.",
-                      "error_code": 71831
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "tags": [
-          "Subscribers"
-        ]
-      }
-    },
-    "/prod/subscribers/{idSite}": {
-      "get": {
-        "summary": "Get Subscriber",
-        "description": "Fetches a specific Subscriber",
-        "operationId": "get-subscriber",
-        "parameters": [
-          {
-            "name": "idSite",
-            "in": "path",
-            "description": "Website ID",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "required": true
-          },
-          {
-            "name": "subscriber_uid",
-            "in": "query",
-            "required": true,
+            "description": "The specific subscriber ID to pull data for.",
             "schema": {
               "type": "string"
             }
@@ -701,17 +606,77 @@
                 "examples": {
                   "Result": {
                     "value": {
-                      "idSite": "300",
-                      "subscriberId": "00388872-cd0b-4243-0333-642526c72f0f",
-                      "browserLang": "ar",
-                      "browserName": "Chrome",
-                      "operatingSystemCode": "Windows",
-                      "deviceType": "mobile",
-                      "ip": "77.75.88.125",
-                      "region": "Beyrouth",
-                      "city": "Beirut",
-                      "country": "Lebanon",
-                      "custom_attributes": []
+                      "count": 8032,
+                      "skip": 0,
+                      "limit": 2,
+                      "segmentId": null,
+                      "filter": null,
+                      "subscribers": [
+                        {
+                          "subscriberId": "001f6728-a026-5f78-1ae4-91966dc12638",
+                          "deviceType": "desktop",
+                          "browserName": "Chrome",
+                          "operatingSystemCode": "Windows",
+                          "browserLang": "en-GB",
+                          "region": "Wigan",
+                          "city": "Wigan",
+                          "ip": "34.225.243.14",
+                          "country": "United Kingdom",
+                          "postal": "",
+                          "idSite": "300",
+                          "alias": {
+                            "user": "mwilson_84",
+                            "email_hash": "22c97d5b39c408d857dff71fe825bb1c"
+                          },
+                          "attributes": {
+                            "username": "mwilson84",
+                            "subscription_url": "https://example.com/blog/push-notifications-guide"
+                          },
+                          "createdAt": "2024-09-13 13:01:31",
+                          "notifications": [
+                            {
+                              "title": "Welcome to Aimtell",
+                              "body": "Thanks for subscribing! Check out our latest features.",
+                              "icon": "https://cdn.aimtell.io/user/uploads/siteicons.aimtell.com/icon_300_1497911257.png",
+                              "link": "https://aimtell.com/welcome",
+                              "read": "1",
+                              "timestamp": 1726232722
+                            }
+                          ]
+                        },
+                        {
+                          "subscriberId": "00274db4-4fe3-c15d-4898-e55887411179",
+                          "deviceType": "desktop",
+                          "browserName": "Chrome",
+                          "operatingSystemCode": "Mac OS X",
+                          "browserLang": "en-US",
+                          "region": "Colorado",
+                          "city": "Denver",
+                          "ip": "73.92.148.201",
+                          "country": "United States",
+                          "postal": "80202",
+                          "idSite": "300",
+                          "alias": {
+                            "user": "jsmith_denver",
+                            "email_hash": "a7f3c2e9b48d5116f0c71d8e4b2a9c05"
+                          },
+                          "attributes": {
+                            "username": "jsmith_denver",
+                            "subscription_url": "https://example.com/deals/holiday-2024"
+                          },
+                          "createdAt": "2024-11-21 15:53:15",
+                          "notifications": [
+                            {
+                              "title": "Black Friday Sale",
+                              "body": "Our biggest sale of the year is live now.",
+                              "icon": "https://cdn.aimtell.io/user/uploads/siteicons.aimtell.com/icon_300_1497911257.png",
+                              "link": "https://aimtell.com/black-friday-sale-customers",
+                              "read": "0",
+                              "timestamp": 1732892400
+                            }
+                          ]
+                        }
+                      ]
                     }
                   }
                 }

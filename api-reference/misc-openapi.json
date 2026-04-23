@@ -836,7 +836,7 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "Limit number of results",
+            "description": "Maximum number of results to return per page.",
             "schema": {
               "type": "string"
             }
@@ -844,7 +844,7 @@
           {
             "name": "skip",
             "in": "query",
-            "description": "Skip offset",
+            "description": "Number of results to skip for pagination (offset).",
             "schema": {
               "type": "string"
             }
@@ -991,7 +991,7 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "Limit number of results to return",
+            "description": "Maximum number of results to return per page.",
             "schema": {
               "type": "string"
             }
@@ -999,7 +999,7 @@
           {
             "name": "skip",
             "in": "query",
-            "description": "Skip offset",
+            "description": "Number of results to skip for pagination (offset).",
             "schema": {
               "type": "string"
             }
@@ -1217,7 +1217,7 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "Limit number of results to return",
+            "description": "Maximum number of results to return per page.",
             "schema": {
               "type": "string"
             }
@@ -1225,7 +1225,7 @@
           {
             "name": "skip",
             "in": "query",
-            "description": "Skip offset",
+            "description": "Number of results to skip for pagination (offset).",
             "schema": {
               "type": "string"
             }
@@ -1370,7 +1370,7 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "Limit number of results to return",
+            "description": "Maximum number of results to return per page.",
             "schema": {
               "type": "string"
             }
@@ -1378,7 +1378,7 @@
           {
             "name": "skip",
             "in": "query",
-            "description": "Skip offset",
+            "description": "Number of results to skip for pagination (offset).",
             "schema": {
               "type": "string"
             }
@@ -1572,7 +1572,7 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "Limit number of results to return",
+            "description": "Maximum number of results to return per page.",
             "schema": {
               "type": "string"
             }
@@ -1580,7 +1580,7 @@
           {
             "name": "skip",
             "in": "query",
-            "description": "Skip offset",
+            "description": "Number of results to skip for pagination (offset).",
             "schema": {
               "type": "string"
             }
@@ -2011,8 +2011,7 @@
                       },
                       "event_value": {
                         "type": "integer",
-                        "description": "Event Value",
-                        "format": "int32"
+                        "description": "Event Value"
                       }
                     }
                   }
@@ -3006,8 +3005,7 @@
                   },
                   "type": {
                     "type": "integer",
-                    "description": "top left drop down prompt = 1 , middle rectangle prompt = 3",
-                    "format": "int32"
+                    "description": "top left drop down prompt = 1 , middle rectangle prompt = 3"
                   }
                 }
               }
@@ -3482,18 +3480,15 @@
                   },
                   "promptId": {
                     "type": "integer",
-                    "description": "Prompt ID to add condition",
-                    "format": "int32"
+                    "description": "Prompt ID to add condition"
                   },
                   "autoPrompt": {
                     "type": "integer",
-                    "description": "Auto Prompt (1 = true, 0 = false)",
-                    "format": "int32"
+                    "description": "Auto Prompt (1 = true, 0 = false)"
                   },
                   "priority": {
                     "type": "integer",
-                    "description": "Priority (1-10, 10 = highest)",
-                    "format": "int32"
+                    "description": "Priority (1-10, 10 = highest)"
                   },
                   "device_type": {
                     "type": "string",
@@ -3501,18 +3496,15 @@
                   },
                   "seconds_delay": {
                     "type": "integer",
-                    "description": "Seconds Delay (number of seconds)",
-                    "format": "int32"
+                    "description": "Seconds Delay (number of seconds)"
                   },
                   "scroll_delay": {
                     "type": "integer",
-                    "description": "Scroll Delay (percent of page e.g. 50)",
-                    "format": "int32"
+                    "description": "Scroll Delay (percent of page e.g. 50)"
                   },
                   "pages_delay": {
                     "type": "integer",
-                    "description": "Pages Delay (pages viewed e.g. 3)",
-                    "format": "int32"
+                    "description": "Pages Delay (pages viewed e.g. 3)"
                   },
                   "cookie_required": {
                     "type": "string",
@@ -3524,8 +3516,7 @@
                   },
                   "disabled": {
                     "type": "integer",
-                    "description": "Disabled (1 = true, 0 = false)",
-                    "format": "int32"
+                    "description": "Disabled (1 = true, 0 = false)"
                   }
                 }
               }
@@ -3717,19 +3708,16 @@
                   },
                   "promptId": {
                     "type": "integer",
-                    "description": "Prompt ID to add condition",
-                    "format": "int32"
+                    "description": "Prompt ID to add condition"
                   },
                   "autoPrompt": {
                     "type": "integer",
                     "description": "Auto Prompt (1 = true, 0 = false)",
-                    "default": 1,
-                    "format": "int32"
+                    "default": 1
                   },
                   "priority": {
                     "type": "integer",
-                    "description": "Priority (1-10, 10 = highest)",
-                    "format": "int32"
+                    "description": "Priority (1-10, 10 = highest)"
                   },
                   "device_type": {
                     "type": "string",
@@ -3738,20 +3726,17 @@
                   "seconds_delay": {
                     "type": "integer",
                     "description": "Seconds Delay (number of seconds)",
-                    "default": null,
-                    "format": "int32"
+                    "default": null
                   },
                   "scroll_delay": {
                     "type": "integer",
                     "description": "Scroll Delay (percent of page e.g. 50)",
-                    "default": null,
-                    "format": "int32"
+                    "default": null
                   },
                   "pages_delay": {
                     "type": "integer",
                     "description": "Pages Delay (pages viewed e.g. 3)",
-                    "default": null,
-                    "format": "int32"
+                    "default": null
                   },
                   "cookie_required": {
                     "type": "string",
