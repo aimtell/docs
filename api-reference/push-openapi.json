@@ -44,8 +44,7 @@
                 "properties": {
                   "idSite": {
                     "type": "integer",
-                    "description": "Site ID",
-                    "format": "int32"
+                    "description": "Site ID"
                   },
                   "title": {
                     "type": "string",
@@ -68,8 +67,7 @@
                   },
                   "segmentId": {
                     "type": "integer",
-                    "description": "Segment ID",
-                    "format": "int32"
+                    "description": "Segment ID"
                   },
                   "alias": {
                     "type": "string",
@@ -86,13 +84,11 @@
                   "push_ttl": {
                     "type": "integer",
                     "description": "Time till a push should expire in seconds. Default is 1 week.",
-                    "default": 604800,
-                    "format": "int32"
+                    "default": 604800
                   },
                   "auto_hide": {
                     "type": "integer",
-                    "description": "Number of seconds (255 max) until the notification will hide automatically. Default is 0, which is persistent (requires interaction)",
-                    "format": "int32"
+                    "description": "Number of seconds (255 max) until the notification will hide automatically. Default is 0, which is persistent (requires interaction)"
                   },
                   "collapse_key": {
                     "type": "string",
@@ -208,7 +204,7 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "Number of results",
+            "description": "Maximum number of results to return per page.",
             "schema": {
               "type": "string"
             }
@@ -216,7 +212,7 @@
           {
             "name": "skip",
             "in": "query",
-            "description": "Skip",
+            "description": "Number of results to skip for pagination (offset).",
             "schema": {
               "type": "string"
             }
@@ -436,8 +432,7 @@
                   },
                   "status": {
                     "type": "integer",
-                    "description": "set 1 for draft, 5 for active",
-                    "format": "int32"
+                    "description": "set 1 for draft, 5 for active"
                   },
                   "eventAction": {
                     "type": "string"
@@ -450,8 +445,7 @@
                   },
                   "delay": {
                     "type": "integer",
-                    "description": "Time in seconds after event when push should be sent",
-                    "format": "int32"
+                    "description": "Time in seconds after event when push should be sent"
                   },
                   "drip": {
                     "type": "string",
@@ -808,7 +802,7 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "Number of results",
+            "description": "Maximum number of results to return per page.",
             "schema": {
               "type": "string"
             }
@@ -816,7 +810,7 @@
           {
             "name": "skip",
             "in": "query",
-            "description": "Skip",
+            "description": "Number of results to skip for pagination (offset).",
             "schema": {
               "type": "string"
             }
@@ -1030,8 +1024,7 @@
                   },
                   "status": {
                     "type": "integer",
-                    "description": "set 1 for draft, 2 for active",
-                    "format": "int32"
+                    "description": "set 1 for draft, 2 for active"
                   },
                   "segments": {
                     "type": "string",
@@ -1039,8 +1032,7 @@
                   },
                   "max_enabled": {
                     "type": "integer",
-                    "description": "enable maximum number of sends \u2014 set 0 for false,  1 for true",
-                    "format": "int32"
+                    "description": "enable maximum number of sends \u2014 set 0 for false,  1 for true"
                   },
                   "max_type": {
                     "type": "string",
@@ -1048,8 +1040,7 @@
                   },
                   "max_value": {
                     "type": "integer",
-                    "description": "maximum number of sends e.g. 5 or 20",
-                    "format": "int32"
+                    "description": "maximum number of sends e.g. 5 or 20"
                   },
                   "actions": {
                     "type": "object",
@@ -1389,7 +1380,7 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "Number of results",
+            "description": "Maximum number of results to return per page.",
             "schema": {
               "type": "string"
             }
@@ -1397,7 +1388,7 @@
           {
             "name": "skip",
             "in": "query",
-            "description": "Skip",
+            "description": "Number of results to skip for pagination (offset).",
             "schema": {
               "type": "string"
             }
@@ -1629,13 +1620,11 @@
                   },
                   "push_ttl": {
                     "type": "integer",
-                    "description": "Expiration Time (in seconds)",
-                    "format": "int32"
+                    "description": "Expiration Time (in seconds)"
                   },
                   "auto_hide": {
                     "type": "integer",
-                    "description": "Auto Hide (in seconds)",
-                    "format": "int32"
+                    "description": "Auto Hide (in seconds)"
                   },
                   "collapse_key": {
                     "type": "string",
@@ -1643,8 +1632,7 @@
                   },
                   "tz_delivery": {
                     "type": "integer",
-                    "description": "deliver based on user's timezone (set 0 for false, 1 for true)",
-                    "format": "int32"
+                    "description": "deliver based on user's timezone (set 0 for false, 1 for true)"
                   },
                   "customIcon": {
                     "type": "string",
@@ -1657,8 +1645,7 @@
                   "status": {
                     "type": "integer",
                     "description": "set 1 for draft, 2 for scheduled",
-                    "default": 1,
-                    "format": "int32"
+                    "default": 1
                   },
                   "version_b": {
                     "type": "object",
@@ -1666,8 +1653,7 @@
                     "properties": {
                       "status": {
                         "type": "integer",
-                        "description": "set 1 for draft, 2 for scheduled (must match version a)",
-                        "format": "int32"
+                        "description": "set 1 for draft, 2 for scheduled (must match version a)"
                       },
                       "title": {
                         "type": "string",
@@ -2110,8 +2096,7 @@
                   },
                   "push_ttl": {
                     "type": "integer",
-                    "description": "expiration time (in seconds)",
-                    "format": "int32"
+                    "description": "expiration time (in seconds)"
                   },
                   "collapse_key": {
                     "type": "string",
@@ -2119,13 +2104,11 @@
                   },
                   "auto_hide": {
                     "type": "integer",
-                    "description": "Auto Hide (in seconds)",
-                    "format": "int32"
+                    "description": "Auto Hide (in seconds)"
                   },
                   "tz_delivery": {
                     "type": "integer",
-                    "description": "deliver based on user's timezone (set 0 for false, 1 for true)",
-                    "format": "int32"
+                    "description": "deliver based on user's timezone (set 0 for false, 1 for true)"
                   },
                   "status": {
                     "type": "string",
@@ -2582,7 +2565,7 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "Number of results",
+            "description": "Maximum number of results to return per page.",
             "schema": {
               "type": "string"
             }
@@ -2590,7 +2573,7 @@
           {
             "name": "skip",
             "in": "query",
-            "description": "Skip",
+            "description": "Number of results to skip for pagination (offset).",
             "schema": {
               "type": "string"
             }
@@ -2753,8 +2736,7 @@
             "description": "Website ID",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "integer"
             }
           },
           {

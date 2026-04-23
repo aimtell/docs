@@ -34,7 +34,7 @@
           {
             "name": "limit",
             "in": "query",
-            "description": "Number of results",
+            "description": "Maximum number of results to return per page.",
             "schema": {
               "type": "string"
             }
@@ -42,7 +42,7 @@
           {
             "name": "skip",
             "in": "query",
-            "description": "Skip",
+            "description": "Number of results to skip for pagination (offset).",
             "schema": {
               "type": "string"
             }
@@ -796,50 +796,42 @@
                   "collect_ip": {
                     "type": "integer",
                     "description": "Allow collection of IP Address (0 = false, 1 = true)",
-                    "default": 1,
-                    "format": "int32"
+                    "default": 1
                   },
                   "collect_ip_as_attribute": {
                     "type": "integer",
                     "description": "Automatically track IP address as a custom attribute  (0 = false, 1 = true)",
-                    "default": 0,
-                    "format": "int32"
+                    "default": 0
                   },
                   "collect_suburl": {
                     "type": "integer",
                     "description": "Automatically track subscription URL as custom attribute  (0 = false, 1 = true)",
-                    "default": 0,
-                    "format": "int32"
+                    "default": 0
                   },
                   "collect_ua_as_attribute": {
                     "type": "integer",
                     "description": "Automatically track User Agent as custom attribute  (0 = false, 1 = true)",
-                    "default": 1,
-                    "format": "int32"
+                    "default": 1
                   },
                   "track_clicks_as_events": {
                     "type": "integer",
                     "description": "Automatically track notification clicks as custom events.  (0 = false, 1 = true)",
-                    "default": 0,
-                    "format": "int32"
+                    "default": 0
                   },
                   "track_subscribe_as_event": {
                     "type": "integer",
                     "description": "Automatically track subscriptions as custom events.  (0 = false, 1 = true)",
-                    "default": 0,
-                    "format": "int32"
+                    "default": 0
                   },
                   "retention_length": {
                     "type": "integer",
                     "description": "Number of days to keep data for deleted subscribers",
-                    "default": "30",
-                    "format": "int32"
+                    "default": "30"
                   },
                   "frequency_cap": {
                     "type": "integer",
                     "description": "Max number of notifications a subscriber can receive per day",
-                    "default": 15,
-                    "format": "int32"
+                    "default": 15
                   }
                 }
               }
